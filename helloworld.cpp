@@ -95,14 +95,14 @@ while (start <= end){
  
         
 
-int main(){
-    //  Search in Rotated Sorted Array
-    vector<int> arr = {4,5,6,7,0,1,2};
-int target = 3;
-int result = binarysearch(arr, target);
-cout << result << endl;
+// int main(){
+//     //  Search in Rotated Sorted Array
+//     vector<int> arr = {4,5,6,7,0,1,2};
+// int target = 3;
+// int result = binarysearch(arr, target);
+// cout << result << endl;
     
-    return 0;
-}
+//     return 0;
+// }
 
 
