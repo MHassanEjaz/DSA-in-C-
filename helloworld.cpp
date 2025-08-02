@@ -108,12 +108,33 @@
 
 
 
-#include<iostream>
-#include<vector>
-using namespace std;
+// #include<iostream>
+// #include<vector>
+// using namespace std;
+// int peakindexmountainarray(vector<int>& arr){
+//     int start = 1;
+//     int end = arr.size()-2;
+//     while (start < end){
+//         int mid = start + (end-start)/2;
+//         if(arr[mid-1] < arr[mid] && arr[mid] > arr[mid+1]){
+//             return mid;
+//         } else if( arr[mid-1] < arr[mid]){
+//             start = mid + 1;
+//         } else {
+//             end = mid - 1;
+//         }
+//         }
+//         return -1;
+//     }
 
-int main(){ 
+
+// int main(){ 
+//     vector<int> arr = {0,3,5,8,9,1,2};
+//     int result = peakindexmountainarray(arr);
+//     cout << result << endl;
     
-    
-    return 0;
-}
+//     return 0;
+// }
+
+
+
