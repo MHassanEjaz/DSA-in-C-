@@ -174,7 +174,6 @@ int main(){
     int result = singleelementinsortedarray(arr);
     cout << result << endl;
 
-
  return 0;
 }
 
