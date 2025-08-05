@@ -277,12 +277,12 @@
 // }
 
 
-int main(){
-    vector<int> arr = {40,30,10,20};
-    int n = 4, m = 5;
-    cout << mintimetopaint(arr, n, m);
- return 0;
-}
+// int main(){
+//     vector<int> arr = {40,30,10,20};
+//     int n = 4, m = 5;
+//     cout << mintimetopaint(arr, n, m);
+//  return 0;
+// }
 
 
 
