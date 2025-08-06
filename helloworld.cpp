@@ -291,52 +291,61 @@
 
 
 // Aggressive Cows Problem
-#include<iostream>
-#include<vector>
-using namespace std;
-bool ispossible(vector<int>& arr, int n, int c, int minalloweddistance){
-    int cows = 1;
-    int laststallposition = 0;
-    for (int i=0;i<n;i++){
-        if (arr[i] - laststallposition >= minalloweddistance){
-            cows++;
-            laststallposition = arr[i];
-        } 
-        if(cows == c){
-            return true;
-        }
+// #include<iostream>
+// #include<vector>
+// #include<algorithm> // for sort
+// using namespace std;
 
-        
-    }
-    return false;
-}
+// bool isPossible(vector<int>& arr, int n, int c, int minAllowedDistance) {
+//     int cows = 1;
+//     int lastStallPosition = arr[0];
 
-int getdistance(vector<int>& arr, int n, int c){
-    sort(arr.start(), arr.end())
-    int start = 1;
-    int end = maxvalue - minvalue;
-    int ans = -1;
-    while(start <= end){
-        int mid = start + (end - start)/2;
-        if(ispossible(arr, n, c, mid)){  // left
-            ans = mid;
-            end = mid - 1;
-        } else {   // right
-            start = mid + 1;
-        }
-    }
-    return ans;
+//     for (int i = 1; i < n; i++) {
+//         if (arr[i] - lastStallPosition >= minAllowedDistance) {
+//             cows++;
+//             lastStallPosition = arr[i];
+//         }
+//         if (cows == c) {
+//             return true;
+//         }
+//     }
+//     return false;
+// }
 
-}
+// int getDistance(vector<int>& arr, int n, int c) {
+//     sort(arr.begin(), arr.end()); // Fix typo
+
+//     int start = 1;
+//     int end = arr[n - 1] - arr[0]; // max - min
+//     int ans = -1;
+
+//     while (start <= end) {
+//         int mid = start + (end - start) / 2;
+
+//         if (isPossible(arr, n, c, mid)) {
+//             ans = mid;       // try for a bigger distance
+//             start = mid + 1;
+//         } else {
+//             end = mid - 1;   // reduce distance
+//         }
+//     }
+
+//     return ans;
+// }
+
+// int main() {
+//     int n = 5;
+//     int c = 3;
+//     vector<int> arr = {1, 2, 8, 4, 9};
+
+//     cout << "Largest minimum distance: " << getDistance(arr, n, c) << endl;
+
+//     return 0;
+// }
 
 
-int main(){
-   int n = 5;
-   int c = 3;
-   vector<int> arr = {1,2,8,4,9};
-   cout << getdistance(arr, n, c) << endl;
- return 0;
-}
+
+
 
 
 
