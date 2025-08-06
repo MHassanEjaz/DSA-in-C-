@@ -389,24 +389,83 @@
 
     
 //  with STL
+// #include<iostream>
+// #include<vector>
+// #include<stack>
+// using namespace std;
+// int main(){
+//     stack<int> s;
+//     s.push(10);
+//     s.push(20);
+//     s.push(30);
+//     while(!s.empty()){
+//         cout << s.top() << " ";
+//         s.pop();
+//     }
+//     cout << endl;
+
+//     return 0;
+// }
+
+
+
+// Valid Parentheses
+// #include<iostream>
+// #include<stack>
+// #include<string>
+// using namespace std;
+
+// bool isvalid(string str) {
+//     stack<char> st;
+
+//     for (int i = 0; i < str.length(); i++) {
+//         char ch = str[i];
+
+//         if (ch == '(' || ch == '{' || ch == '[') {
+//             st.push(ch);
+//         } else {
+//             if (st.empty()) return false;
+
+//             if ((ch == ')' && st.top() == '(') ||
+//                 (ch == '}' && st.top() == '{') ||
+//                 (ch == ']' && st.top() == '[')) {
+//                 st.pop();
+//             } else {
+//                 return false;
+//             }
+//         }
+//     }
+
+//     return st.empty();
+// }
+
+// int main() {
+//     string input;
+//     cout << "Enter a string of brackets: ";
+//     cin >> input;
+
+//     if (isvalid(input)) {
+//         cout << "Valid expression (balanced brackets)." << endl;
+//     } else {
+//         cout << "Invalid expression (unbalanced brackets)." << endl;
+//     }
+
+//     return 0;
+// }
+
+
+
+
+
 #include<iostream>
-#include<vector>
 #include<stack>
+#include<string>
 using namespace std;
-int main(){
-    stack<int> s;
-    s.push(10);
-    s.push(20);
-    s.push(30);
-    while(!s.empty()){
-        cout << s.top() << " ";
-        s.pop();
-    }
-    cout << endl;
+int main() {
+    
 
     return 0;
 }
-
 
 
 
