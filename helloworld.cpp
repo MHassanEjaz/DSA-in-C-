@@ -730,6 +730,73 @@
 
 
 
+// Check for Palindrome Using Stack
+// #include <iostream>
+// using namespace std;
+
+// class Stack {
+// private:
+//     char* arr;
+//     int top;
+//     int capacity;
+
+// public:
+//     Stack(int size) {
+//         capacity = size;
+//         arr = new char[capacity];
+//         top = -1;
+//     }
+
+//     void push(char ch) {
+//         arr[++top] = ch;
+//     }
+
+//     char pop() {
+//         return arr[top--];
+//     }
+
+//     bool isEmpty() {
+//         return top == -1;
+//     }
+
+//     ~Stack() {
+//         delete[] arr;
+//     }
+// };
+
+// bool isPalindrome(string str) {
+//     Stack st(str.length());
+
+//     // Push all characters to stack
+//     for (char ch : str) {
+//         st.push(ch);
+//     }
+
+//     // Compare popping with original
+//     for (char ch : str) {
+//         if (ch != st.pop()) {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+
+// int main() {
+//     string word;
+//     cout << "Enter a word: ";
+//     cin >> word;
+
+//     if (isPalindrome(word)) {
+//         cout << "Palindrome" << endl;
+//     } else {
+//         cout << "Not Palindrome" << endl;
+//     }
+
+//     return 0;
+// }
+
+
+
 
 
 // Valid Parentheses
