@@ -412,23 +412,52 @@
 
 
 // Basic Stack Implementation
-#include<iostream>
-using namespace std;
-void push(int val){
-    if(isFull()){
-        cout << "Stack is fulled. " << endl;
-    } else {
-        cout << "Stack is empty. " << endl;
-        arr[top++];
-    }
-}
-int main(){
-     int size = 10;
-     int arr[size];
-     int top;
+// #include <iostream>
+// using namespace std;
 
-    return 0;
-}
+// const int MAX = 10; // stack capacity
+// int arr[MAX];
+// int top = -1; // stack starts empty
+
+// bool isFull() {
+//     return top == MAX - 1;
+// }
+
+// bool isEmpty() {
+//     return top == -1;
+// }
+
+// void push(int val) {
+//     if (isFull()) {
+//         cout << "Stack Overflow.\n";
+//     } else {
+//         arr[++top] = val; // increment first, then insert
+//         cout << val << " pushed.\n";
+//     }
+// }
+
+// int pop() {
+//     if (isEmpty()) {
+//         cout << "Stack Underflow.\n";
+//         return -1; // return an invalid value
+//     } else {
+//         return arr[top--]; // return value, then decrement top
+//     }
+// }
+
+// int main() {
+//     push(10);
+//     push(20);
+//     push(30);
+
+//     cout << "Popped: " << pop() << endl;
+//     cout << "Popped: " << pop() << endl;
+//     cout << "Popped: " << pop() << endl;
+//     cout << "Popped: " << pop() << endl; // underflow
+
+//     return 0;
+// }
+
 
 
 
