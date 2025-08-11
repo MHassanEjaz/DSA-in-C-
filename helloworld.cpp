@@ -460,138 +460,141 @@
 
 
 //  with class
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
 
-class Stack {
-protected:
-    int* stackarray;
-    int maxsize;
-    int top;
+// class Stack {
+// protected:
+//     int* stackarray;
+//     int maxsize;
+//     int top;
 
-public:
-    Stack(int size) {
-        stackarray = new int[size];
-        maxsize = size;
-        top = -1;
-    }
+// public:
+//     Stack(int size) {
+//         stackarray = new int[size];
+//         maxsize = size;
+//         top = -1;
+//     }
 
-    virtual void push(int val) = 0; // pure virtual
-    virtual int pop() = 0;          // pure virtual
+//     virtual void push(int val) = 0; // pure virtual
+//     virtual int pop() = 0;          // pure virtual
 
-    virtual ~Stack() {
-        delete[] stackarray;
-    }
-};
+//     virtual ~Stack() {
+//         delete[] stackarray;
+//     }
+// };
 
 
-class mystack : public Stack {
-public:
-    mystack(int size) : Stack(size) {}
-
-    
-    void push(int val) override {
-        if (full()) {
-            cout << "Stack Overflow.\n";
-        } else {
-            stackarray[++top] = val;
-            cout << val << " pushed.\n";
-        }
-    }
+// class mystack : public Stack {
+// public:
+//     mystack(int size) : Stack(size) {}
 
     
-    int pop() override {
-        if (empty()) {
-            cout << "Stack Underflow.\n";
-            return -1;
-        } else {
-            return stackarray[top--];
-        }
-    }
+//     void push(int val) override {
+//         if (full()) {
+//             cout << "Stack Overflow.\n";
+//         } else {
+//             stackarray[++top] = val;
+//             cout << val << " pushed.\n";
+//         }
+//     }
+
+    
+//     int pop() override {
+//         if (empty()) {
+//             cout << "Stack Underflow.\n";
+//             return -1;
+//         } else {
+//             return stackarray[top--];
+//         }
+//     }
 
    
-    bool full() {
-        return top == maxsize - 1;
-    }
+//     bool full() {
+//         return top == maxsize - 1;
+//     }
 
     
-    bool empty() {
-        return top == -1;
-    }
+//     bool empty() {
+//         return top == -1;
+//     }
 
     
-    int size() {
-        return top + 1;
-    }
+//     int size() {
+//         return top + 1;
+//     }
 
    
-    int peek() {
-        if (empty()) {
-            cout << "Stack is empty.\n";
-            return -1;
-        }
-        return stackarray[top];
-    }
+//     int peek() {
+//         if (empty()) {
+//             cout << "Stack is empty.\n";
+//             return -1;
+//         }
+//         return stackarray[top];
+//     }
 
    
-    void display() {
-        if (empty()) {
-            cout << "Stack is empty.\n";
-        } else {
-            cout << "Stack elements (top to bottom): ";
-            for (int i = top; i >= 0; i--) {
-                cout << stackarray[i] << " ";
-            }
-            cout << endl;
-        }
-    }
+//     void display() {
+//         if (empty()) {
+//             cout << "Stack is empty.\n";
+//         } else {
+//             cout << "Stack elements (top to bottom): ";
+//             for (int i = top; i >= 0; i--) {
+//                 cout << stackarray[i] << " ";
+//             }
+//             cout << endl;
+//         }
+//     }
 
  
-    void countEvenOdd() {
-        int evenCount = 0, oddCount = 0;
-        for (int i = 0; i <= top; i++) {
-            if (stackarray[i] % 2 == 0)
-                evenCount++;
-            else
-                oddCount++;
-        }
-        cout << "Even numbers: " << evenCount << endl;
-        cout << "Odd numbers: " << oddCount << endl;
-    }
+//     void countEvenOdd() {
+//         int evenCount = 0, oddCount = 0;
+//         for (int i = 0; i <= top; i++) {
+//             if (stackarray[i] % 2 == 0)
+//                 evenCount++;
+//             else
+//                 oddCount++;
+//         }
+//         cout << "Even numbers: " << evenCount << endl;
+//         cout << "Odd numbers: " << oddCount << endl;
+//     }
 
-    int SumOfOddNumbers() {
-        int sum = 0;
-        for (int i = 0; i <= top; i++) {
-            if (stackarray[i] % 2 != 0)
-                sum += stackarray[i];
-        }
-        return sum;
-    }
-};
+//     int SumOfOddNumbers() {
+//         int sum = 0;
+//         for (int i = 0; i <= top; i++) {
+//             if (stackarray[i] % 2 != 0)
+//                 sum += stackarray[i];
+//         }
+//         return sum;
+//     }
+// };
 
-int main() {
-    mystack s(5);
+// int main() {
+//     mystack s(5);
 
-    s.push(10);
-    s.push(15);
-    s.push(20);
-    s.push(25);
-    s.push(30);
-    s.push(35); // overflow
+//     s.push(10);
+//     s.push(15);
+//     s.push(20);
+//     s.push(25);
+//     s.push(30);
+//     s.push(35); // overflow
 
-    s.display();
-    cout << "Top element: " << s.peek() << endl;
-    cout << "Current size: " << s.size() << endl;
+//     s.display();
+//     cout << "Top element: " << s.peek() << endl;
+//     cout << "Current size: " << s.size() << endl;
 
-    s.countEvenOdd();
-    cout << "Sum of odd numbers: " << s.SumOfOddNumbers() << endl;
+//     s.countEvenOdd();
+//     cout << "Sum of odd numbers: " << s.SumOfOddNumbers() << endl;
 
-    cout << "Popped: " << s.pop() << endl;
-    s.display();
+//     cout << "Popped: " << s.pop() << endl;
+//     s.display();
 
-    return 0;
-}
+//     return 0;
+// }
+
+
+
 
 
 
