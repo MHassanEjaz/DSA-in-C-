@@ -648,9 +648,85 @@
 
 
 
+// automatically resizes when full.
+// #include <iostream>
+// using namespace std;
 
+// class DynamicStack {
+// private:
+//     int* arr;       // pointer to the stack array
+//     int top;        // index of top element
+//     int capacity;   // current capacity of stack
 
+//     void resize() {
+//         capacity *= 2; // double the size
+//         int* newArr = new int[capacity];
+//         for (int i = 0; i <= top; i++) {
+//             newArr[i] = arr[i];
+//         }
+//         delete[] arr; // free old memory
+//         arr = newArr;
+//         cout << "Capacity increased to: " << capacity << endl;
+//     }
 
+// public:
+//     DynamicStack(int cap = 4) {
+//         capacity = cap;
+//         arr = new int[capacity];
+//         top = -1;
+//     }
+
+//     void push(int value) {
+//         if (top + 1 == capacity) {
+//             resize();
+//         }
+//         arr[++top] = value;
+//     }
+
+//     int pop() {
+//         if (top == -1) {
+//             cout << "Stack Underflow" << endl;
+//             return -1;
+//         }
+//         return arr[top--];
+//     }
+
+//     int peek() {
+//         if (top == -1) {
+//             cout << "Stack is empty" << endl;
+//             return -1;
+//         }
+//         return arr[top];
+//     }
+
+//     int size() {
+//         return top + 1;
+//     }
+
+//     int getCapacity() {
+//         return capacity;
+//     }
+
+//     ~DynamicStack() {
+//         delete[] arr;
+//     }
+// };
+
+// int main() {
+//     DynamicStack st;
+
+//     st.push(1);
+//     st.push(2);
+//     st.push(3);
+//     st.push(4); // capacity = 4
+//     st.push(5); // triggers resize → capacity = 8
+
+//     cout << "Top element: " << st.peek() << endl;
+//     cout << "Stack size: " << st.size() << endl;
+//     cout << "Stack capacity: " << st.getCapacity() << endl;
+
+//     return 0;
+// }
 
 
 
