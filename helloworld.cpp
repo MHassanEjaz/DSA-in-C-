@@ -409,6 +409,29 @@
 
 
 
+
+
+// Basic Stack Implementation
+#include<iostream>
+using namespace std;
+void push(int val){
+    if(isFull()){
+        cout << "Stack is fulled. " << endl;
+    } else {
+        cout << "Stack is empty. " << endl;
+        arr[top++];
+    }
+}
+int main(){
+     int size = 10;
+     int arr[size];
+     int top;
+
+    return 0;
+}
+
+
+
 // Valid Parentheses
 // #include<iostream>
 // #include<stack>
@@ -483,6 +506,11 @@
 
 //     return 0;
 // }
+
+
+
+
+
 
 
 
