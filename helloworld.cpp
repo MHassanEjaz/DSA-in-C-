@@ -594,6 +594,63 @@
 // }
 
 
+// reverse string with simple array
+// #include <iostream>
+// using namespace std;
+
+// string reverseString(string str) {
+//     int start = 0;
+//     int end = str.length() - 1;
+//     while (start < end) {
+//         swap(str[start], str[end]);
+//         start++;
+//         end--;
+//     }
+//     return str;
+// }
+
+// int main() {
+//     string str = "kishan";
+//     string result = reverseString(str);
+//     cout << result << endl; // Output: nahsik
+//     return 0;
+// }
+
+
+
+// reverse string using stack
+// #include <iostream>
+// #include <stack>
+// #include <string>
+// using namespace std;
+
+// int main() {
+//     string input;
+//     cout << "Enter a string: ";
+//     cin >> input;
+
+//     stack<char> s;
+
+//     for (char c : input) {
+//         s.push(c);
+//     }
+
+//     string reversed = "";
+//     while (!s.empty()) {
+//         reversed += s.top();
+//         s.pop();
+//     }
+
+//     cout << "Reversed string: " << reversed << endl;
+
+//     return 0;
+// }
+
+
+
+
+
+
 
 
 
