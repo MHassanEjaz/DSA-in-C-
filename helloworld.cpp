@@ -800,82 +800,82 @@
 
 
 // Sort a Stack Using Another Stack
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-class Stack {
-private:
-    int* arr;
-    int top;
-    int capacity;
+// class Stack {
+// private:
+//     int* arr;
+//     int top;
+//     int capacity;
 
-public:
-    Stack(int size) {
-        capacity = size;
-        arr = new int[capacity];
-        top = -1;
-    }
+// public:
+//     Stack(int size) {
+//         capacity = size;
+//         arr = new int[capacity];
+//         top = -1;
+//     }
 
-    void push(int value) {
-        arr[++top] = value;
-    }
+//     void push(int value) {
+//         arr[++top] = value;
+//     }
 
-    int pop() {
-        return arr[top--];
-    }
+//     int pop() {
+//         return arr[top--];
+//     }
 
-    int peek() {
-        return arr[top];
-    }
+//     int peek() {
+//         return arr[top];
+//     }
 
-    bool isEmpty() {
-        return top == -1;
-    }
+//     bool isEmpty() {
+//         return top == -1;
+//     }
 
-    ~Stack() {
-        delete[] arr;
-    }
-};
+//     ~Stack() {
+//         delete[] arr;
+//     }
+// };
 
-void sortStack(Stack &original, int size) {
-    Stack temp(size);
+// void sortStack(Stack &original, int size) {
+//     Stack temp(size);
 
-    while (!original.isEmpty()) {
-        int current = original.pop();
+//     while (!original.isEmpty()) {
+//         int current = original.pop();
 
-        // Move elements from temp back to original until correct position found
-        while (!temp.isEmpty() && temp.peek() > current) {
-            original.push(temp.pop());
-        }
+//         // Move elements from temp back to original until correct position found
+//         while (!temp.isEmpty() && temp.peek() > current) {
+//             original.push(temp.pop());
+//         }
 
-        temp.push(current);
-    }
+//         temp.push(current);
+//     }
 
-    // Copy back to original
-    while (!temp.isEmpty()) {
-        original.push(temp.pop());
-    }
-}
+//     // Copy back to original
+//     while (!temp.isEmpty()) {
+//         original.push(temp.pop());
+//     }
+// }
 
-int main() {
-    Stack st(10);
-    st.push(34);
-    st.push(3);
-    st.push(31);
-    st.push(98);
-    st.push(92);
-    st.push(23);
+// int main() {
+//     Stack st(10);
+//     st.push(34);
+//     st.push(3);
+//     st.push(31);
+//     st.push(98);
+//     st.push(92);
+//     st.push(23);
 
-    sortStack(st, 10);
+//     sortStack(st, 10);
 
-    cout << "Sorted stack (top to bottom): ";
-    while (!st.isEmpty()) {
-        cout << st.pop() << " ";
-    }
-    cout << endl;
+//     cout << "Sorted stack (top to bottom): ";
+//     while (!st.isEmpty()) {
+//         cout << st.pop() << " ";
+//     }
+//     cout << endl;
 
-    return 0;
-}
+//     return 0;
+// }
 
 
 
@@ -956,6 +956,81 @@ int main() {
 //     return 0;
 // }
 
+
+
+// Two Stack in an array
+// #include<iostream>
+// #include<stack>
+// using namespace std; 
+// class twostack{
+// int *arr;
+// int top1;
+// int top2;
+// int size;
+// public:
+// twostack(int s){
+//     this->size = s;
+//     top1 = -1;
+//     top2 = s;
+//     arr = new int[s];
+// }
+
+
+// void push1(int num){
+//     if(top2 - top1 > 1){
+//         top1++;
+//         arr[top1] = num;
+//     } else {
+//             cout << "Stack Overflow on push1\n";
+//         }
+// }
+
+
+// void push2(int num){
+//     if(top2 - top1 > 1){
+//         top1--;
+//         arr[top2] = num;
+//     } else {
+//             cout << "Stack Overflow on push1\n";
+//         }
+// }
+
+
+// int pop1() {
+//     if(top1 >= 0){
+//         int ans = arr[top1];
+//         top1--;
+//         return ans;
+//     } else {
+//         return -1;
+//     }
+// }
+
+// int pop2() {
+//     if(top2 < size){
+//         int ans = arr[top2];
+//         top2++;
+//         return ans;
+//     } else {
+//         return -1;
+//     }
+// }
+
+
+// };
+// int main(){
+//     twostack st1(5);
+//     st1.push1(10);
+//     st1.push2(20);
+//     st1.push1(30);
+//     st1.push2(40);
+
+//     cout << "Popped from Stack1: " << st1.pop1() << endl;
+//     cout << "Popped from Stack2: " << st1.pop2() << endl;
+
+
+//     return 0;
+// }
 
 
 
