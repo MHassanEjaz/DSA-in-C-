@@ -1034,26 +1034,50 @@
 
 
 // reverse a string using stack
+// #include<iostream>
+// #include<string>
+// #include<stack>
+// using namespace std;
+// int main(){
+// string str = "babbar";
+// stack<char> s;
+// for(int i=0;i<str.length();i++){
+//     char ch = str[i];
+//     s.push(ch);
+// }
+
+// string ans = "";
+// while(!s.empty()){
+//     char ch = s.top();
+//     ans.push_back(ch);
+//     s.pop();
+// }
+
+// cout << "Reverse String is: " << ans << endl;
+//     return 0;
+// }
+
+
+
+
+// Delete middle element form stack
 #include<iostream>
 #include<string>
 #include<stack>
 using namespace std;
+void solve(stack<int>& inputstack, int count, int size){
+
+
+}
+
+
+
+void deletemid(stack<int>& inputstack, int count, int size){
+    int count = 0;
+    solve(inputstack, count, n);
+}
 int main(){
-string str = "babbar";
-stack<char> s;
-for(int i=0;i<str.length();i++){
-    char ch = str[i];
-    s.push(ch);
-}
 
-string ans = "";
-while(!s.empty()){
-    char ch = s.top();
-    ans.push_back(ch);
-    s.pop();
-}
-
-cout << "Reverse String is: " << ans << endl;
     return 0;
 }
 
