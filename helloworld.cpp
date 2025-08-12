@@ -1276,12 +1276,53 @@
 
 
 // Redundant brackets
-#include<iostream>
-#include<stack>
+#include <iostream>
+#include <stack>
+#include <string>
 using namespace std;
 
+bool findredundantbrackets(string &s) {
+    stack<char> st;
+
+    for (int i = 0; i < s.length(); i++) {
+        char ch = s[i];
+
+        if (ch == '(' || ch == '+' || ch == '-' || ch == '*' || ch == '/') {
+            st.push(ch);
+        }
+        else if (ch == ')') {
+            bool isRedundant = true;
+
+            // Check inside the brackets
+            while (!st.empty() && st.top() != '(') {
+                char top = st.top();
+                if (top == '+' || top == '-' || top == '*' || top == '/') {
+                    isRedundant = false;
+                }
+                st.pop();
+            }
+
+            if (!st.empty()) {
+                st.pop(); // pop the opening '('
+            }
+
+            if (isRedundant) {
+                return true; // Redundant brackets found
+            }
+        }
+    }
+
+    return false; // No redundant brackets found
+}
+
+
 int main() {
-    
+    string expr1 = "((a+b))";   // redundant
+    string expr2 = "(a+(b*c))"; // not redundant
+
+    cout << "Expression 1: " << (findredundantbrackets(expr1) ? "Redundant" : "Not Redundant") << endl;
+    cout << "Expression 2: " << (findredundantbrackets(expr2) ? "Redundant" : "Not Redundant") << endl;
+
     return 0;
 }
 
