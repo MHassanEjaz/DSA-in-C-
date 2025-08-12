@@ -1116,49 +1116,60 @@
 
 
 // Insert element at its bottom in a given stack
+// #include<iostream>
+// #include<stack>
+// using namespace std;
+// void solve(stack<int>& s, int x){
+// // base case
+// if(s.empty()){
+//     s.push(x);
+//     return;
+// }
+// int num = s.top();
+// s.pop();
+
+// solve(s, x);
+// s.push(num);
+
+// }
+
+// stack<int> pushatbottom(stack<int>& mystack, int x){
+//     solve(mystack,x);
+//     return mystack;
+
+// }
+
+// int main() {
+//     stack<int> s;
+//     s.push(2);
+//     s.push(3);
+//     s.push(4);
+
+//     int x = 1;
+
+//     // Stack before: Top -> 4 3 2
+//     s = pushatbottom(s, x);
+//     // Expected Stack after: Top -> 4 3 2 1
+
+//     cout << "Stack after pushing " << x << " at the bottom:\n";
+//     while (!s.empty()) {
+//         cout << s.top() << " ";
+//         s.pop();
+//     }
+
+//     return 0;
+// }
+
+
+
+
+
 #include<iostream>
 #include<stack>
 using namespace std;
-void solve(stack<int>& s, int x){
-// base case
-if(s.empty()){
-    s.push(x);
-    return;
-}
-int num = s.top();
-s.pop();
-
-solve(s, x);
-s.push(num);
-
-}
-
-stack<int> pushatbottom(stack<int>& mystack, int x){
-    solve(mystack,x);
-    return mystack;
-
-}
 
 int main() {
-    stack<int> s;
-    s.push(2);
-    s.push(3);
-    s.push(4);
-
-    int x = 1;
-
-    // Stack before: Top -> 4 3 2
-    s = pushatbottom(s, x);
-    // Expected Stack after: Top -> 4 3 2 1
-
-    cout << "Stack after pushing " << x << " at the bottom:\n";
-    while (!s.empty()) {
-        cout << s.top() << " ";
-        s.pop();
-    }
 
     return 0;
 }
-
-
 
