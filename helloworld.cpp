@@ -1316,13 +1316,13 @@ bool findredundantbrackets(string &s) {
 }
 
 
-// int main() {
-//     string expr1 = "((a+b))";   // redundant
-//     string expr2 = "(a+(b*c))"; // not redundant
+int main() {
+    string expr1 = "((a+b))";   // redundant
+    string expr2 = "(a+(b*c))"; // not redundant
 
-//     cout << "Expression 1: " << (findredundantbrackets(expr1) ? "Redundant" : "Not Redundant") << endl;
-//     cout << "Expression 2: " << (findredundantbrackets(expr2) ? "Redundant" : "Not Redundant") << endl;
+    cout << "Expression 1: " << (findredundantbrackets(expr1) ? "Redundant" : "Not Redundant") << endl;
+    cout << "Expression 2: " << (findredundantbrackets(expr2) ? "Redundant" : "Not Redundant") << endl;
 
-//     return 0;
-// }
+    return 0;
+}
 
