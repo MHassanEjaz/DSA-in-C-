@@ -1220,7 +1220,6 @@
 #include<stack>
 using namespace std;
 
-void insertatbottom(stack<int>& stack, int element) {
 
 int main() {
 
