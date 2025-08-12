@@ -1163,10 +1163,64 @@
 
 
 
+// reverse stack using recursion
+// #include<iostream>
+// #include<stack>
+// using namespace std;
 
+// void insertatbottom(stack<int>& stack, int element) {
+//     // base case
+//     if (stack.empty()) {
+//         stack.push(element);
+//         return;
+//     }
+
+//     int num = stack.top();
+//     stack.pop();
+
+//     insertatbottom(stack, element);  // use correct variable names
+//     stack.push(num);
+// }
+
+// void reversestack(stack<int>& stack) {
+//     // base case
+//     if (stack.empty()) {
+//         return;
+//     }
+
+//     int num = stack.top();
+//     stack.pop();
+
+//     reversestack(stack);
+//     insertatbottom(stack, num);
+// }
+
+// int main() {
+//     stack<int> s;
+//     s.push(1);
+//     s.push(2);
+//     s.push(3);
+//     s.push(4);  // Stack from bottom to top: 1 2 3 4
+
+//     reversestack(s);  // Should reverse the stack
+
+//     cout << "Reversed Stack (top to bottom):\n";
+//     while (!s.empty()) {
+//         cout << s.top() << " ";
+//         s.pop();
+//     }
+
+//     return 0;
+// }
+
+
+
+// sort a stack
 #include<iostream>
 #include<stack>
 using namespace std;
+
+void insertatbottom(stack<int>& stack, int element) {
 
 int main() {
 
