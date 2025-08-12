@@ -1061,61 +1061,104 @@
 
 
 // Delete middle element form stack
+// #include<iostream>
+// #include<stack>
+// using namespace std;
+
+// void solve(stack<int>& inputstack, int count, int size) {
+//     // Base case: if we've reached the middle
+//     if (count == size / 2) {
+//         inputstack.pop(); // Remove the middle element
+//         return;
+//     }
+
+//     int num = inputstack.top();
+//     inputstack.pop();
+
+//     // Recursive call
+//     solve(inputstack, count + 1, size);
+
+//     // Push the element back after recursive call
+//     inputstack.push(num);
+// }
+
+// void deletemid(stack<int>& inputstack, int size) {
+//     int count = 0;
+//     solve(inputstack, count, size);
+// }
+
+// int main() {
+//     stack<int> st;
+
+//     st.push(1);
+//     st.push(2);
+//     st.push(3);
+//     st.push(4);
+//     st.push(5); // Stack from bottom to top: 1 2 3 4 5
+
+//     int size = st.size();
+
+//     deletemid(st, size); // Should remove 3 (middle element)
+
+//     cout << "Stack after deleting middle element:\n";
+//     while (!st.empty()) {
+//         cout << st.top() << " ";
+//         st.pop();
+//     }
+
+//     return 0;
+// }
+
+
+
+
+
+
+
+// Insert element at its bottom in a given stack
 #include<iostream>
 #include<stack>
 using namespace std;
+void solve(stack<int>& s, int x){
+// base case
+if(s.empty()){
+    s.push(x);
+    return;
+}
+int num = s.top();
+s.pop();
 
-void solve(stack<int>& inputstack, int count, int size) {
-    // Base case: if we've reached the middle
-    if (count == size / 2) {
-        inputstack.pop(); // Remove the middle element
-        return;
-    }
+solve(s, x);
+s.push(num);
 
-    int num = inputstack.top();
-    inputstack.pop();
-
-    // Recursive call
-    solve(inputstack, count + 1, size);
-
-    // Push the element back after recursive call
-    inputstack.push(num);
 }
 
-void deletemid(stack<int>& inputstack, int size) {
-    int count = 0;
-    solve(inputstack, count, size);
+stack<int> pushatbottom(stack<int>& mystack, int x){
+    solve(mystack,x);
+    return mystack;
+
 }
 
 int main() {
-    stack<int> st;
+    stack<int> s;
+    s.push(2);
+    s.push(3);
+    s.push(4);
 
-    st.push(1);
-    st.push(2);
-    st.push(3);
-    st.push(4);
-    st.push(5); // Stack from bottom to top: 1 2 3 4 5
+    int x = 1;
 
-    int size = st.size();
+    // Stack before: Top -> 4 3 2
+    s = pushatbottom(s, x);
+    // Expected Stack after: Top -> 4 3 2 1
 
-    deletemid(st, size); // Should remove 3 (middle element)
-
-    cout << "Stack after deleting middle element:\n";
-    while (!st.empty()) {
-        cout << st.top() << " ";
-        st.pop();
+    cout << "Stack after pushing " << x << " at the bottom:\n";
+    while (!s.empty()) {
+        cout << s.top() << " ";
+        s.pop();
     }
 
     return 0;
 }
-
-
-
-
-
-
-
-
 
 
 
