@@ -1219,10 +1219,58 @@
 #include<iostream>
 #include<stack>
 using namespace std;
+#include<iostream>
+#include<stack>
+using namespace std;
+
+void sortedinsert(stack<int>& stack, int num) {
+    // Correct base case: insert when stack is empty or top is less than or equal to num
+    if (stack.empty() || stack.top() <= num) {
+        stack.push(num);
+        return;
+    }
+
+    int n = stack.top();
+    stack.pop();
+
+    // Recursive call
+    sortedinsert(stack, num);
+
+    // Push top back after inserting num at the correct position
+    stack.push(n);
+}
+
+void sortstack(stack<int>& stack) {
+    if (stack.empty()) {
+        return;
+    }
+
+    int num = stack.top();
+    stack.pop();
+
+    // Sort the remaining stack
+    sortstack(stack);
+
+    // Insert the popped element in sorted order
+    sortedinsert(stack, num);
+}
+
 
 
 int main() {
+      stack<int> s;
+    s.push(3);
+    s.push(1);
+    s.push(4);
+    s.push(2);
 
+    sortstack(s);  // Sorts the stack in ascending order (top -> bottom)
+
+    cout << "Sorted stack (top to bottom):\n";
+    while (!s.empty()) {
+        cout << s.top() << " ";
+        s.pop();
+    }
     return 0;
 }
 
