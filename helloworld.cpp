@@ -1401,27 +1401,55 @@
 
 
 // Next smallest element
+// #include <iostream>
+// #include <stack>
+// #include <vector>
+// #include <string>
+// using namespace std;
+
+// vector<int> nextsmallerElement(vector<int>& arr, int n) {
+//     stack<int> s;
+//     s.push(-1);
+//     vector<int> ans(n); // Initialize with size n
+
+//     for(int i = n - 1; i >= 0; i--) {
+//         int curr = arr[i];
+//         while(s.top() >= curr) {
+//             s.pop();
+//         }
+//         ans[i] = s.top();
+//         s.push(curr);
+//     }
+//     return ans;
+// }
+
+// int main() {
+//     vector<int> arr = {2, 1, 4, 3};
+//     vector<int> result = nextsmallerElement(arr, arr.size());
+
+//     cout << "Next smaller elements: ";
+//     for (int val : result) {
+//         cout << val << " ";
+//     }
+//     cout << endl;
+
+//     return 0;
+// }
+
+
+
+
+// Largest Rectangular Area in Histogram
 #include <iostream>
 #include <stack>
-#include<vector>
+#include <vector>
 #include <string>
 using namespace std;
-vector<int> nextsmallerelement(vector<int>& arr, int n){
-    stck<int> s;
-    s.push(-1);
-    vector<int> ans;
-    for(int i=n-1;i>=0;i++){
-        int curr = arr[i];
-        while(s.top() >= curr){
-            s.pop();
-        }
-        ans[i] = s.top();
-        s.push(curr);
-    }
-    return ans;
-}
+
+
 
 int main() {
+    
 
     return 0;
 }
