@@ -1800,82 +1800,82 @@
 
 
 // Design a stack that supports getmin() in O(1) time and O(1) extra space
-#include <iostream>
-#include <stack>
-#include <vector>
-#include <climits>
-using namespace std;
+// #include <iostream>
+// #include <stack>
+// #include <vector>
+// #include <climits>
+// using namespace std;
 
-class specialstack {
-private:
-    stack<int> s;
-    int min;
+// class specialstack {
+// private:
+//     stack<int> s;
+//     int min;
 
-public:
-    void push(int data){
-        if(s.isempty()){
-            s.push(data);
-            min = data;
-        }
-        else {
-            if(data < min){
-                s.push(2*data-min);
-                min = data;
-            }
-            else {
-                s.push(data);
-            }
-        }
-    }
+// public:
+//     void push(int data){
+//         if(s.isempty()){
+//             s.push(data);
+//             min = data;
+//         }
+//         else {
+//             if(data < min){
+//                 s.push(2*data-min);
+//                 min = data;
+//             }
+//             else {
+//                 s.push(data);
+//             }
+//         }
+//     }
 
-    int pop(){
-        if(s.isempty()){
-            return -1;
-        }
+//     int pop(){
+//         if(s.isempty()){
+//             return -1;
+//         }
 
-        int curr = s.top();
-        s.pop();
-        if(curr > min){
-            return curr;
-        }
-        else{
-            int prevmin = min;
-            int val = 2*min - curr;
-            min = val;
-            return prevmin;
-        }
-    }
+//         int curr = s.top();
+//         s.pop();
+//         if(curr > min){
+//             return curr;
+//         }
+//         else{
+//             int prevmin = min;
+//             int val = 2*min - curr;
+//             min = val;
+//             return prevmin;
+//         }
+//     }
 
-    int top(){
-        if(s.isempty()){
-            return -1;
+//     int top(){
+//         if(s.isempty()){
+//             return -1;
         
-        int curr = s.top();
-        if(curr < min){
-            return min;
-        }
-        else{
-            return curr;
-        }
+//         int curr = s.top();
+//         if(curr < min){
+//             return min;
+//         }
+//         else{
+//             return curr;
+//         }
 
     
 
-    bool isempty(){
-        return s.isempty();
-    }
+//     bool isempty(){
+//         return s.isempty();
+//     }
 
-    int getmin(){
-        if(s.isempty()){
-            return -1;
-        }
-        return min;
-    }
+//     int getmin(){
+//         if(s.isempty()){
+//             return -1;
+//         }
+//         return min;
+//     }
 
     
     
-};
+// };
 
-int main() {
+// int main() {
    
-    return 0;
-}
+//     return 0;
+// }
