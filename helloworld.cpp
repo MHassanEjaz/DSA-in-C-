@@ -1784,11 +1784,11 @@ int main() {
     st.push(30, 2);
     st.push(40, 3);
 
-//     cout << st.pop(1) << endl; // should print 20
-//     cout << st.pop(2) << endl; // should print 30
-//     cout << st.pop(3) << endl; // should print 40
-//     cout << st.pop(1) << endl; // should print 10
+    cout << st.pop(1) << endl; // should print 20
+    cout << st.pop(2) << endl; // should print 30
+    cout << st.pop(3) << endl; // should print 40
+    cout << st.pop(1) << endl; // should print 10
 
-//     return 0;
-// }
+    return 0;
+}
 
