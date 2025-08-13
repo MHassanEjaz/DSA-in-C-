@@ -1392,7 +1392,7 @@ int main() {
     if (result == -1) {
         cout << "Not possible to balance the string\n";
     } else {
-    //     cout << "Minimum reversals needed: " << result << endl;
-    // }
-    // return 0;
+        cout << "Minimum reversals needed: " << result << endl;
+    }
+    return 0;
 }
