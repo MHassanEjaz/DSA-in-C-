@@ -1440,70 +1440,148 @@
 
 
 // Largest Rectangular Area in Histogram
+// #include <iostream>
+// #include <stack>
+// #include <vector>
+// #include <climits> // for INT_MIN
+// using namespace std;
+
+// class Solution {
+// private:
+//     vector<int> nextSmallerElement(vector<int>& arr, int n) {
+//         stack<int> s;
+//         vector<int> ans(n);
+//         s.push(-1);
+
+//         for (int i = n - 1; i >= 0; i--) {
+//             while (s.top() != -1 && arr[s.top()] >= arr[i]) {
+//                 s.pop();
+//             }
+//             ans[i] = s.top();
+//             s.push(i);
+//         }
+//         return ans;
+//     }
+
+//     vector<int> prevSmallerElement(vector<int>& arr, int n) {
+//         stack<int> s;
+//         vector<int> ans(n);
+//         s.push(-1);
+
+//         for (int i = 0; i < n; i++) {
+//             while (s.top() != -1 && arr[s.top()] >= arr[i]) {
+//                 s.pop();
+//             }
+//             ans[i] = s.top();
+//             s.push(i);
+//         }
+//         return ans;
+//     }
+
+// public:
+//     int largestRectangularArea(vector<int>& heights) {
+//         int n = heights.size();
+//         vector<int> next = nextSmallerElement(heights, n);
+//         vector<int> prev = prevSmallerElement(heights, n);
+//         int area = INT_MIN;
+
+//         for (int i = 0; i < n; i++) {
+//             int l = heights[i];
+//             if (next[i] == -1) {
+//                 next[i] = n;
+//             }
+//             int b = next[i] - prev[i] - 1;
+//             int newArea = l * b;
+//             area = max(area, newArea);
+//         }
+//         return area;
+//     }
+// };
+
+// int main() {
+//     Solution sol;
+//     vector<int> histogram = {2, 1, 5, 6, 2, 3};
+//     int maxArea = sol.largestRectangularArea(histogram);
+//     cout << "Largest Rectangular Area: " << maxArea << endl;
+
+//     return 0;
+// }
+
+
+
+
+
+
+
+
 #include <iostream>
 #include <stack>
 #include <vector>
-#include <climits> // for INT_MIN
 using namespace std;
 
 class Solution {
 private:
-    vector<int> nextSmallerElement(vector<int>& arr, int n) {
-        stack<int> s;
-        vector<int> ans(n);
-        s.push(-1);
-
-        for (int i = n - 1; i >= 0; i--) {
-            while (s.top() != -1 && arr[s.top()] >= arr[i]) {
-                s.pop();
-            }
-            ans[i] = s.top();
-            s.push(i);
-        }
-        return ans;
-    }
-
-    vector<int> prevSmallerElement(vector<int>& arr, int n) {
-        stack<int> s;
-        vector<int> ans(n);
-        s.push(-1);
-
-        for (int i = 0; i < n; i++) {
-            while (s.top() != -1 && arr[s.top()] >= arr[i]) {
-                s.pop();
-            }
-            ans[i] = s.top();
-            s.push(i);
-        }
-        return ans;
+    bool knows(vector<vector<int>>& m, int a, int b) {
+        return m[a][b] == 1;
     }
 
 public:
-    int largestRectangularArea(vector<int>& heights) {
-        int n = heights.size();
-        vector<int> next = nextSmallerElement(heights, n);
-        vector<int> prev = prevSmallerElement(heights, n);
-        int area = INT_MIN;
+    int celebrity(vector<vector<int>>& m, int n) {
+        stack<int> s;
 
+        // Step 1: Push all people into the stack
         for (int i = 0; i < n; i++) {
-            int l = heights[i];
-            if (next[i] == -1) {
-                next[i] = n;
-            }
-            int b = next[i] - prev[i] - 1;
-            int newArea = l * b;
-            area = max(area, newArea);
+            s.push(i);
         }
-        return area;
+
+        // Step 2: Get a potential celebrity
+        while (s.size() > 1) {
+            int a = s.top(); s.pop();
+            int b = s.top(); s.pop();
+
+            if (knows(m, a, b)) {
+                s.push(b); // a can't be celeb
+            } else {
+                s.push(a); // b can't be celeb
+            }
+        }
+
+        int candidate = s.top();
+
+        // Step 3: Verify candidate
+        // Row check: candidate should know no one
+        for (int i = 0; i < n; i++) {
+            if (m[candidate][i] == 1) {
+                return -1; // Not a celebrity
+            }
+        }
+
+        // Column check: everyone should know candidate
+        for (int i = 0; i < n; i++) {
+            if (i != candidate && m[i][candidate] == 0) {
+                return -1; // Not a celebrity
+            }
+        }
+
+        return candidate; // Valid celebrity
     }
 };
 
 int main() {
+    vector<vector<int>> M = {
+        {0, 1, 1},
+        {0, 0, 1},
+        {0, 0, 0}
+    };
+
     Solution sol;
-    vector<int> histogram = {2, 1, 5, 6, 2, 3};
-    int maxArea = sol.largestRectangularArea(histogram);
-    cout << "Largest Rectangular Area: " << maxArea << endl;
+    int celeb = sol.celebrity(M, 3);
+
+    if (celeb == -1) {
+        cout << "No celebrity found." << endl;
+    } else {
+        cout << "Celebrity is person: " << celeb << endl;
+    }
 
     return 0;
 }
-
