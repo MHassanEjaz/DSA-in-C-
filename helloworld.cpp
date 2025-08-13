@@ -1685,10 +1685,10 @@ int main() {
         {1, 1, 0, 0}
     };
 
-//     Solution sol;
-//     int result = sol.maxArea(matrix);
-//     cout << "Maximum rectangular area is: " << result << endl;
+    Solution sol;
+    int result = sol.maxArea(matrix);
+    cout << "Maximum rectangular area is: " << result << endl;
 
-//     return 0;
-// }
+    return 0;
+}
 
