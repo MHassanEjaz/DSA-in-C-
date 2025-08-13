@@ -1697,6 +1697,109 @@
 
 
 // N Stacks in an Array
+// #include <iostream>
+// #include <stack>
+// #include <vector>
+// #include <climits>
+// using namespace std;
+
+// class Nstack {
+// private:
+//     int *arr;
+//     int *top;
+//     int *next;
+//     int n, s;
+//     int freespot;
+
+// public:
+//     // Constructor
+//     Nstack(int N, int S) {
+//         n = N;
+//         s = S;
+//         arr = new int[s];
+//         top = new int[n];
+//         next = new int[s];
+
+//         // Initialize all stacks as empty
+//         for (int i = 0; i < n; i++) {
+//             top[i] = -1;
+//         }
+
+//         // Initialize all spaces as free and point to next free
+//         for (int i = 0; i < s - 1; i++) {
+//             next[i] = i + 1;
+//         }
+//         next[s - 1] = -1;
+
+//         freespot = 0;
+//     }
+
+//     // Push operation
+//     bool push(int x, int m) {
+//         if (freespot == -1) {
+//             // No space
+//             return false;
+//         }
+
+//         int index = freespot;
+//         freespot = next[index];
+
+//         arr[index] = x;
+
+//         next[index] = top[m - 1];
+//         top[m - 1] = index;
+
+//         return true;
+//     }
+
+//     // Pop operation
+//     int pop(int m) {
+//         if (top[m - 1] == -1) {
+//             // Stack is empty
+//             return -1;
+//         }
+
+//         int index = top[m - 1];
+//         top[m - 1] = next[index];
+
+//         next[index] = freespot;
+//         freespot = index;
+
+//         return arr[index];
+//     }
+
+//     // Destructor
+//     ~Nstack() {
+//         delete[] arr;
+//         delete[] top;
+//         delete[] next;
+//     }
+// };
+
+// int main() {
+//     Nstack st(3, 6); // 3 stacks in an array of size 6
+
+//     st.push(10, 1);
+//     st.push(20, 1);
+//     st.push(30, 2);
+//     st.push(40, 3);
+
+//     cout << st.pop(1) << endl; // should print 20
+//     cout << st.pop(2) << endl; // should print 30
+//     cout << st.pop(3) << endl; // should print 40
+//     cout << st.pop(1) << endl; // should print 10
+
+//     return 0;
+// }
+
+
+
+
+
+
+
+
+
 #include <iostream>
 #include <stack>
 #include <vector>
@@ -1705,90 +1808,16 @@ using namespace std;
 
 class Nstack {
 private:
-    int *arr;
-    int *top;
-    int *next;
-    int n, s;
-    int freespot;
+    
 
 public:
-    // Constructor
-    Nstack(int N, int S) {
-        n = N;
-        s = S;
-        arr = new int[s];
-        top = new int[n];
-        next = new int[s];
+    
 
-        // Initialize all stacks as empty
-        for (int i = 0; i < n; i++) {
-            top[i] = -1;
-        }
-
-        // Initialize all spaces as free and point to next free
-        for (int i = 0; i < s - 1; i++) {
-            next[i] = i + 1;
-        }
-        next[s - 1] = -1;
-
-        freespot = 0;
-    }
-
-    // Push operation
-    bool push(int x, int m) {
-        if (freespot == -1) {
-            // No space
-            return false;
-        }
-
-        int index = freespot;
-        freespot = next[index];
-
-        arr[index] = x;
-
-        next[index] = top[m - 1];
-        top[m - 1] = index;
-
-        return true;
-    }
-
-    // Pop operation
-    int pop(int m) {
-        if (top[m - 1] == -1) {
-            // Stack is empty
-            return -1;
-        }
-
-        int index = top[m - 1];
-        top[m - 1] = next[index];
-
-        next[index] = freespot;
-        freespot = index;
-
-        return arr[index];
-    }
-
-    // Destructor
-    ~Nstack() {
-        delete[] arr;
-        delete[] top;
-        delete[] next;
-    }
+    
+    
 };
 
 int main() {
-    Nstack st(3, 6); // 3 stacks in an array of size 6
-
-    st.push(10, 1);
-    st.push(20, 1);
-    st.push(30, 2);
-    st.push(40, 3);
-
-    cout << st.pop(1) << endl; // should print 20
-    cout << st.pop(2) << endl; // should print 30
-    cout << st.pop(3) << endl; // should print 40
-    cout << st.pop(1) << endl; // should print 10
-
+   
     return 0;
 }
-
