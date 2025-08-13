@@ -1593,102 +1593,127 @@
 
 
 // Max Rectangle
+// #include <iostream>
+// #include <stack>
+// #include <vector>
+// #include <climits>
+// using namespace std;
+
+// class Solution {
+// private:
+//     vector<int> nextSmallerElement(vector<int>& arr, int n) {
+//         stack<int> s;
+//         vector<int> ans(n);
+//         s.push(-1);
+
+//         for (int i = n - 1; i >= 0; i--) {
+//             while (s.top() != -1 && arr[s.top()] >= arr[i]) {
+//                 s.pop();
+//             }
+//             ans[i] = s.top();
+//             s.push(i);
+//         }
+//         return ans;
+//     }
+
+//     vector<int> prevSmallerElement(vector<int>& arr, int n) {
+//         stack<int> s;
+//         vector<int> ans(n);
+//         s.push(-1);
+
+//         for (int i = 0; i < n; i++) {
+//             while (s.top() != -1 && arr[s.top()] >= arr[i]) {
+//                 s.pop();
+//             }
+//             ans[i] = s.top();
+//             s.push(i);
+//         }
+//         return ans;
+//     }
+
+//     int largestRectangularArea(vector<int>& heights) {
+//         int n = heights.size();
+//         vector<int> next = nextSmallerElement(heights, n);
+//         vector<int> prev = prevSmallerElement(heights, n);
+//         int area = INT_MIN;
+
+//         for (int i = 0; i < n; i++) {
+//             int l = heights[i];
+//             if (next[i] == -1) {
+//                 next[i] = n;
+//             }
+//             int b = next[i] - prev[i] - 1;
+//             int newArea = l * b;
+//             area = max(area, newArea);
+//         }
+//         return area;
+//     }
+
+// public:
+//     int maxArea(vector<vector<int>>& matrix) {
+//         if (matrix.empty()) return 0;
+
+//         int n = matrix.size();       // rows
+//         int m = matrix[0].size();    // cols
+
+//         vector<int> heights(m, 0);
+//         int maxArea = 0;
+
+//         for (int i = 0; i < n; i++) {
+//             // Build histogram for this row
+//             for (int j = 0; j < m; j++) {
+//                 if (matrix[i][j] == 0) {
+//                     heights[j] = 0;
+//                 } else {
+//                     heights[j] += matrix[i][j];
+//                 }
+//             }
+
+//             int area = largestRectangularArea(heights);
+//             maxArea = max(maxArea, area);
+//         }
+
+//         return maxArea;
+//     }
+// };
+
+// int main() {
+//     vector<vector<int>> matrix = {
+//         {0, 1, 1, 0},
+//         {1, 1, 1, 1},
+//         {1, 1, 1, 1},
+//         {1, 1, 0, 0}
+//     };
+
+//     Solution sol;
+//     int result = sol.maxArea(matrix);
+//     cout << "Maximum rectangular area is: " << result << endl;
+
+//     return 0;
+// }
+
+
+
+
+
+// N Stacks in an Array
 #include <iostream>
 #include <stack>
 #include <vector>
 #include <climits>
 using namespace std;
 
-class Solution {
+class Nstack {
 private:
-    vector<int> nextSmallerElement(vector<int>& arr, int n) {
-        stack<int> s;
-        vector<int> ans(n);
-        s.push(-1);
-
-        for (int i = n - 1; i >= 0; i--) {
-            while (s.top() != -1 && arr[s.top()] >= arr[i]) {
-                s.pop();
-            }
-            ans[i] = s.top();
-            s.push(i);
-        }
-        return ans;
-    }
-
-    vector<int> prevSmallerElement(vector<int>& arr, int n) {
-        stack<int> s;
-        vector<int> ans(n);
-        s.push(-1);
-
-        for (int i = 0; i < n; i++) {
-            while (s.top() != -1 && arr[s.top()] >= arr[i]) {
-                s.pop();
-            }
-            ans[i] = s.top();
-            s.push(i);
-        }
-        return ans;
-    }
-
-    int largestRectangularArea(vector<int>& heights) {
-        int n = heights.size();
-        vector<int> next = nextSmallerElement(heights, n);
-        vector<int> prev = prevSmallerElement(heights, n);
-        int area = INT_MIN;
-
-        for (int i = 0; i < n; i++) {
-            int l = heights[i];
-            if (next[i] == -1) {
-                next[i] = n;
-            }
-            int b = next[i] - prev[i] - 1;
-            int newArea = l * b;
-            area = max(area, newArea);
-        }
-        return area;
-    }
+    
 
 public:
-    int maxArea(vector<vector<int>>& matrix) {
-        if (matrix.empty()) return 0;
-
-        int n = matrix.size();       // rows
-        int m = matrix[0].size();    // cols
-
-        vector<int> heights(m, 0);
-        int maxArea = 0;
-
-        for (int i = 0; i < n; i++) {
-            // Build histogram for this row
-            for (int j = 0; j < m; j++) {
-                if (matrix[i][j] == 0) {
-                    heights[j] = 0;
-                } else {
-                    heights[j] += matrix[i][j];
-                }
-            }
-
-            int area = largestRectangularArea(heights);
-            maxArea = max(maxArea, area);
-        }
-
-        return maxArea;
-    }
+Nstack
+    
 };
 
 int main() {
-    vector<vector<int>> matrix = {
-        {0, 1, 1, 0},
-        {1, 1, 1, 1},
-        {1, 1, 1, 1},
-        {1, 1, 0, 0}
-    };
-
-    Solution sol;
-    int result = sol.maxArea(matrix);
-    cout << "Maximum rectangular area is: " << result << endl;
-
+    
     return 0;
 }
 
