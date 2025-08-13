@@ -1333,6 +1333,74 @@
 
 
 // Minimum cost to make string valid
+// #include <iostream>
+// #include <stack>
+// #include <string>
+// using namespace std;
+// #include <iostream>
+// #include <stack>
+// #include <string>
+// using namespace std;
+
+// int findminimumcost(string str) {
+//     // Odd length strings can never be balanced
+//     if (str.length() % 2 != 0) {
+//         return -1;
+//     }
+
+//     stack<char> s;
+
+//     for (int i = 0; i < str.length(); i++) {
+//         char ch = str[i];
+
+//         if (ch == '(') {
+//             s.push(ch);
+//         } else {
+//             if (!s.empty() && s.top() == '(') {
+//                 s.pop();  // valid pair
+//             } else {
+//                 s.push(ch); // unmatched ')'
+//             }
+//         }
+//     }
+
+//     // Now the stack contains only unmatched brackets
+//     int a = 0; // count of '('
+//     int b = 0; // count of ')'
+
+//     while (!s.empty()) {
+//         if (s.top() == '(') {
+//             a++;
+//         } else {
+//             b++;
+//         }
+//         s.pop();
+//     }
+
+//     // Minimum reversals = ceil(a/2) + ceil(b/2)
+//     int ans = (a + 1) / 2 + (b + 1) / 2;
+//     return ans;
+// }
+
+
+
+
+// int main() {
+//     string str = "())((()))((";
+//     int result = findminimumcost(str);
+
+//     if (result == -1) {
+//         cout << "Not possible to balance the string\n";
+//     } else {
+//         cout << "Minimum reversals needed: " << result << endl;
+//     }
+//     return 0;
+// }
+
+
+
+
+// Next smallest element
 #include <iostream>
 #include <stack>
 #include <string>
@@ -1341,58 +1409,9 @@ using namespace std;
 #include <stack>
 #include <string>
 using namespace std;
-
-int findminimumcost(string str) {
-    // Odd length strings can never be balanced
-    if (str.length() % 2 != 0) {
-        return -1;
-    }
-
-    stack<char> s;
-
-    for (int i = 0; i < str.length(); i++) {
-        char ch = str[i];
-
-        if (ch == '(') {
-            s.push(ch);
-        } else {
-            if (!s.empty() && s.top() == '(') {
-                s.pop();  // valid pair
-            } else {
-                s.push(ch); // unmatched ')'
-            }
-        }
-    }
-
-    // Now the stack contains only unmatched brackets
-    int a = 0; // count of '('
-    int b = 0; // count of ')'
-
-    while (!s.empty()) {
-        if (s.top() == '(') {
-            a++;
-        } else {
-            b++;
-        }
-        s.pop();
-    }
-
-    // Minimum reversals = ceil(a/2) + ceil(b/2)
-    int ans = (a + 1) / 2 + (b + 1) / 2;
-    return ans;
-}
-
-
 
 
 int main() {
-    string str = "())((()))((";
-    int result = findminimumcost(str);
 
-    if (result == -1) {
-        cout << "Not possible to balance the string\n";
-    } else {
-        cout << "Minimum reversals needed: " << result << endl;
-    }
     return 0;
 }
