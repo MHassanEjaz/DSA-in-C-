@@ -1583,5 +1583,5 @@ int main() {
         cout << "Celebrity is person: " << celeb << endl;
     }
 
-//     return 0;
-// }
+    return 0;
+}
