@@ -2394,70 +2394,86 @@
 
 
 // Reverse first k elements of queue
+// #include <iostream>
+// #include <queue>
+// #include <stack>
+// using namespace std;
+
+// // Function to reverse first K elements of a queue
+// queue<int> modifyQueue(queue<int> q, int k) {
+//     stack<int> s;
+
+//     // Step 1: Push first K elements into stack
+//     for (int i = 0; i < k; i++) {
+//         int val = q.front();
+//         q.pop();
+//         s.push(val);
+//     }
+
+//     // Step 2: Enqueue back elements from stack (they're reversed)
+//     while (!s.empty()) {
+//         q.push(s.top());
+//         s.pop();
+//     }
+
+//     // Step 3: Move the remaining (n-k) elements to back to maintain order
+//     int t = q.size() - k;
+//     while (t--) {
+//         int val = q.front();
+//         q.pop();
+//         q.push(val);
+//     }
+
+//     return q;
+// }
+
+// int main() {
+//     queue<int> q;
+//     int k = 3;
+
+//     // Test input
+//     q.push(1);
+//     q.push(2);
+//     q.push(3);
+//     q.push(4);
+//     q.push(5);
+
+//     cout << "Original queue: ";
+//     queue<int> temp = q;
+//     while (!temp.empty()) {
+//         cout << temp.front() << " ";
+//         temp.pop();
+//     }
+//     cout << endl;
+
+//     queue<int> result = modifyQueue(q, k);
+
+//     cout << "Modified queue (first " << k << " elements reversed): ";
+//     while (!result.empty()) {
+//         cout << result.front() << " ";
+//         result.pop();
+//     }
+//     cout << endl;
+
+//     return 0;
+// }
+
+
+
+
+// First non-repeating character in stream
 #include <iostream>
 #include <queue>
 #include <stack>
 using namespace std;
 
-// Function to reverse first K elements of a queue
-queue<int> modifyQueue(queue<int> q, int k) {
-    stack<int> s;
 
-    // Step 1: Push first K elements into stack
-    for (int i = 0; i < k; i++) {
-        int val = q.front();
-        q.pop();
-        s.push(val);
-    }
-
-    // Step 2: Enqueue back elements from stack (they're reversed)
-    while (!s.empty()) {
-        q.push(s.top());
-        s.pop();
-    }
-
-    // Step 3: Move the remaining (n-k) elements to back to maintain order
-    int t = q.size() - k;
-    while (t--) {
-        int val = q.front();
-        q.pop();
-        q.push(val);
-    }
-
-    return q;
-}
 
 int main() {
-    queue<int> q;
-    int k = 3;
-
-    // Test input
-    q.push(1);
-    q.push(2);
-    q.push(3);
-    q.push(4);
-    q.push(5);
-
-    cout << "Original queue: ";
-    queue<int> temp = q;
-    while (!temp.empty()) {
-        cout << temp.front() << " ";
-        temp.pop();
-    }
-    cout << endl;
-
-    queue<int> result = modifyQueue(q, k);
-
-    cout << "Modified queue (first " << k << " elements reversed): ";
-    while (!result.empty()) {
-        cout << result.front() << " ";
-        result.pop();
-    }
-    cout << endl;
+    
+    
 
     return 0;
 }
-
-
 
 
