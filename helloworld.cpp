@@ -2327,66 +2327,69 @@
 
 
 // First negative integer in every window of size k
-#include <iostream>
-#include <queue>
-#include <deque>
-#include <vector>
-using namespace std;
+// #include <iostream>
+// #include <queue>
+// #include <deque>
+// #include <vector>
+// using namespace std;
 
-vector<long long> printFirstNegativeInt(long long int a[], long long int n, long long int k) {
-    deque<long long int> dq;
-    vector<long long> ans;
+// vector<long long> printFirstNegativeInt(long long int a[], long long int n, long long int k) {
+//     deque<long long int> dq;
+//     vector<long long> ans;
 
-    // Process first window of size k
-    for (int i = 0; i < k; i++) {
-        if (a[i] < 0) {
-            dq.push_back(i);
-        }
-    }
+//     // Process first window of size k
+//     for (int i = 0; i < k; i++) {
+//         if (a[i] < 0) {
+//             dq.push_back(i);
+//         }
+//     }
 
-    // First result
-    if (!dq.empty()) {
-        ans.push_back(a[dq.front()]);
-    } else {
-        ans.push_back(0);
-    }
+//     // First result
+//     if (!dq.empty()) {
+//         ans.push_back(a[dq.front()]);
+//     } else {
+//         ans.push_back(0);
+//     }
 
-    // Process the remaining windows
-    for (int i = k; i < n; i++) {
-        // Remove indices that are out of the current window
-        while (!dq.empty() && dq.front() <= i - k) {
-            dq.pop_front();
-        }
+//     // Process the remaining windows
+//     for (int i = k; i < n; i++) {
+//         // Remove indices that are out of the current window
+//         while (!dq.empty() && dq.front() <= i - k) {
+//             dq.pop_front();
+//         }
 
-        // Add current element if it is negative
-        if (a[i] < 0) {
-            dq.push_back(i);
-        }
+//         // Add current element if it is negative
+//         if (a[i] < 0) {
+//             dq.push_back(i);
+//         }
 
-        // Append result for current window
-        if (!dq.empty()) {
-            ans.push_back(a[dq.front()]);
-        } else {
-            ans.push_back(0);
-        }
-    }
+//         // Append result for current window
+//         if (!dq.empty()) {
+//             ans.push_back(a[dq.front()]);
+//         } else {
+//             ans.push_back(0);
+//         }
+//     }
 
-    return ans;
-}
+//     return ans;
+// }
 
-int main() {
-    long long int a[] = {12, -1, -7, 8, -15, 30, 16, 28};
-    long long int n = sizeof(a) / sizeof(a[0]);
-    long long int k = 3;
+// int main() {
+//     long long int a[] = {12, -1, -7, 8, -15, 30, 16, 28};
+//     long long int n = sizeof(a) / sizeof(a[0]);
+//     long long int k = 3;
 
-    vector<long long> result = printFirstNegativeInt(a, n, k);
+//     vector<long long> result = printFirstNegativeInt(a, n, k);
 
-    cout << "First negative integer in every window of size " << k << ":\n";
-    for (auto val : result) {
-        cout << val << " ";
-    }
-    cout << endl;
+//     cout << "First negative integer in every window of size " << k << ":\n";
+//     for (auto val : result) {
+//         cout << val << " ";
+//     }
+//     cout << endl;
 
-    return 0;
-}
+//     return 0;
+// }
+
+
+
 
