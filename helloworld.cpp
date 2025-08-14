@@ -2008,7 +2008,7 @@
 #include <iostream>
 using namespace std;
 
-class MyQueue {
+class CircularQueue {
     int* arr;
     int frontIndex;
     int rearIndex;
@@ -2018,7 +2018,7 @@ public:
     MyQueue() {
         size = 100001;
         arr = new int[size];
-        frontIndex = 0;
+        frontIndex = rearIndex-1;
         rearIndex = 0;
     }
 
@@ -2026,14 +2026,27 @@ public:
         return frontIndex == rearIndex;
     }
 
-    void enqueue(int data) {
-        if (rearIndex == size) {
+    bool enqueue(int data) {
+        if (frontIndex == 0 && rearIndex == size-1 || rearIndex = (frontIndex-1)%(size-1)) {
             cout << "Queue is full.\n";
-        } else {
-            arr[rearIndex] = data;
+            return;
+        } else if {
+            if(frontIndex == -1){
+            frontIndex = rearIndex =0;
+            arr[rear] = data;
+            }
+          else if(rearIndex == size-1 && frontIndex != 0){
+                rearIndex = 0;
+                arr[rearIndex] = data;
+            }
+        else {
             rearIndex++;
+            arr[rearIndex] = data;
+        }    
+
         }
     }
+
 
     int dequeue() {
         if (frontIndex == rearIndex) {
