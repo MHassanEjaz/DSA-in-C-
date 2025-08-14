@@ -1800,86 +1800,110 @@
 
 
 // Design a stack that supports getmin() in O(1) time and O(1) extra space
+// #include <iostream>
+// #include <stack>
+// using namespace std;
+
+// class SpecialStack {
+// private:
+//     stack<int> s;
+//     int minElement;
+
+// public:
+//     void push(int data) {
+//         if (s.empty()) {
+//             s.push(data);
+//             minElement = data;
+//         } else {
+//             if (data < minElement) {
+//                 s.push(2 * data - minElement); // Encoding
+//                 minElement = data;
+//             } else {
+//                 s.push(data);
+//             }
+//         }
+//     }
+
+//     int pop() {
+//         if (s.empty()) {
+//             return -1;
+//         }
+
+//         int curr = s.top();
+//         s.pop();
+
+//         if (curr >= minElement) {
+//             return curr;
+//         } else {
+//             int prevMin = minElement;
+//             minElement = 2 * minElement - curr; // Decoding
+//             return prevMin;
+//         }
+//     }
+
+//     int top() {
+//         if (s.empty()) {
+//             return -1;
+//         }
+
+//         int curr = s.top();
+//         if (curr < minElement) {
+//             return minElement; // It's an encoded value
+//         } else {
+//             return curr;
+//         }
+//     }
+
+//     bool isempty() {
+//         return s.empty();
+//     }
+
+//     int getmin() {
+//         if (s.empty()) {
+//             return -1;
+//         }
+//         return minElement;
+//     }
+// };
+
+// int main() {
+//     SpecialStack st;
+
+//     st.push(5);
+//     st.push(3);
+//     st.push(7);
+//     st.push(2);
+
+//     cout << "Min: " << st.getmin() << endl;  // Should print 2
+//     cout << "Top: " << st.top() << endl;     // Should print 2
+//     cout << "Pop: " << st.pop() << endl;     // Should pop 2
+//     cout << "Min: " << st.getmin() << endl;  // Should print 3
+//     cout << "Pop: " << st.pop() << endl;     // Should pop 7
+//     cout << "Min: " << st.getmin() << endl;  // Should print 3
+
+//     return 0;
+// }
+
+
+
+
+
+
+// Queue
 #include <iostream>
-#include <stack>
+
 using namespace std;
 
 class SpecialStack {
 private:
-    stack<int> s;
-    int minElement;
+    
 
 public:
-    void push(int data) {
-        if (s.empty()) {
-            s.push(data);
-            minElement = data;
-        } else {
-            if (data < minElement) {
-                s.push(2 * data - minElement); // Encoding
-                minElement = data;
-            } else {
-                s.push(data);
-            }
-        }
-    }
+    
 
-    int pop() {
-        if (s.empty()) {
-            return -1;
-        }
 
-        int curr = s.top();
-        s.pop();
-
-        if (curr >= minElement) {
-            return curr;
-        } else {
-            int prevMin = minElement;
-            minElement = 2 * minElement - curr; // Decoding
-            return prevMin;
-        }
-    }
-
-    int top() {
-        if (s.empty()) {
-            return -1;
-        }
-
-        int curr = s.top();
-        if (curr < minElement) {
-            return minElement; // It's an encoded value
-        } else {
-            return curr;
-        }
-    }
-
-    bool isempty() {
-        return s.empty();
-    }
-
-    int getmin() {
-        if (s.empty()) {
-            return -1;
-        }
-        return minElement;
-    }
 };
 
 int main() {
-    SpecialStack st;
-
-    st.push(5);
-    st.push(3);
-    st.push(7);
-    st.push(2);
-
-    cout << "Min: " << st.getmin() << endl;  // Should print 2
-    cout << "Top: " << st.top() << endl;     // Should print 2
-    cout << "Pop: " << st.pop() << endl;     // Should pop 2
-    cout << "Min: " << st.getmin() << endl;  // Should print 3
-    cout << "Pop: " << st.pop() << endl;     // Should pop 7
-    cout << "Min: " << st.getmin() << endl;  // Should print 3
-
-    return 0;
+    
 }
