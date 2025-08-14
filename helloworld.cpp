@@ -1917,6 +1917,94 @@
 
 
 // Implement a Queue with class
+// #include <iostream>
+// using namespace std;
+
+// class MyQueue {
+//     int* arr;
+//     int frontIndex;
+//     int rearIndex;
+//     int size;
+
+// public:
+//     MyQueue() {
+//         size = 100001;
+//         arr = new int[size];
+//         frontIndex = 0;
+//         rearIndex = 0;
+//     }
+
+//     bool isEmpty() {
+//         return frontIndex == rearIndex;
+//     }
+
+//     void enqueue(int data) {
+//         if (rearIndex == size) {
+//             cout << "Queue is full.\n";
+//         } else {
+//             arr[rearIndex] = data;
+//             rearIndex++;
+//         }
+//     }
+
+//     int dequeue() {
+//         if (frontIndex == rearIndex) {
+//             return -1;
+//         } else {
+//             int ans = arr[frontIndex];  // Corrected from ans[front]
+//             arr[frontIndex] = -1;
+//             frontIndex++;
+//             if (frontIndex == rearIndex) {
+//                 frontIndex = 0;
+//                 rearIndex = 0;
+//             }
+//             return ans;
+//         }
+//     }
+
+//     int front() {
+//         if (frontIndex == rearIndex) {
+//             return -1;
+//         } else {
+//             return arr[frontIndex];
+//         }
+//     }
+
+//     int getSize() {
+//         return rearIndex - frontIndex;
+//     }
+// };
+
+// int main() {
+//     MyQueue q;  // Use custom class MyQueue instead of STL queue
+
+//     q.enqueue(11);
+//     q.enqueue(15);
+//     q.enqueue(13);
+
+//     cout << "Size of queue is: " << q.getSize() << endl;
+
+//     q.dequeue();
+//     q.dequeue();
+//     q.dequeue();
+
+//     cout << "Size of queue is: " << q.getSize() << endl;
+
+//     if (q.isEmpty()) {
+//         cout << "Queue is empty.\n";
+//     } else {
+//         cout << "Queue is not empty.\n";
+//     }
+
+//     return 0;
+// }
+
+
+
+
+
+
+// Circular queue
 #include <iostream>
 using namespace std;
 
