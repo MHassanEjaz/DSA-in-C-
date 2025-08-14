@@ -2005,96 +2005,117 @@
 
 
 // Circular queue
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-class CircularQueue {
-    int* arr;
-    int frontIndex;
-    int rearIndex;
-    int size;
+// class CircularQueue {
+//     int* arr;
+//     int frontIndex;
+//     int rearIndex;
+//     int size;
 
-public:
-    CircularQueue(int s = 100001) {
-        size = s;
-        arr = new int[size];
-        frontIndex = -1;
-        rearIndex = -1;
-    }
+// public:
+//     CircularQueue(int s = 100001) {
+//         size = s;
+//         arr = new int[size];
+//         frontIndex = -1;
+//         rearIndex = -1;
+//     }
 
-    bool enqueue(int data) {
-        // Check if queue is full
-        if ((frontIndex == 0 && rearIndex == size - 1) || 
-            (rearIndex + 1) % size == frontIndex) {
-            cout << "Queue is full.\n";
-            return false;
-        }
+//     bool enqueue(int data) {
+//         // Check if queue is full
+//         if ((frontIndex == 0 && rearIndex == size - 1) || 
+//             (rearIndex + 1) % size == frontIndex) {
+//             cout << "Queue is full.\n";
+//             return false;
+//         }
 
-        // First element
-        if (frontIndex == -1) {
-            frontIndex = rearIndex = 0;
-        } else if (rearIndex == size - 1 && frontIndex != 0) {
-            rearIndex = 0;  // Wrap around
-        } else {
-            rearIndex++;
-        }
+//         // First element
+//         if (frontIndex == -1) {
+//             frontIndex = rearIndex = 0;
+//         } else if (rearIndex == size - 1 && frontIndex != 0) {
+//             rearIndex = 0;  // Wrap around
+//         } else {
+//             rearIndex++;
+//         }
 
-        arr[rearIndex] = data;
-        return true;
-    }
+//         arr[rearIndex] = data;
+//         return true;
+//     }
 
-    int dequeue() {
-        if (frontIndex == -1) {
-            cout << "Queue is empty.\n";
-            return -1;
-        }
+//     int dequeue() {
+//         if (frontIndex == -1) {
+//             cout << "Queue is empty.\n";
+//             return -1;
+//         }
 
-        int data = arr[frontIndex];
-        arr[frontIndex] = -1;
+//         int data = arr[frontIndex];
+//         arr[frontIndex] = -1;
 
-        // Only one element
-        if (frontIndex == rearIndex) {
-            frontIndex = rearIndex = -1;
-        } else if (frontIndex == size - 1) {
-            frontIndex = 0;  // Wrap around
-        } else {
-            frontIndex++;
-        }
+//         // Only one element
+//         if (frontIndex == rearIndex) {
+//             frontIndex = rearIndex = -1;
+//         } else if (frontIndex == size - 1) {
+//             frontIndex = 0;  // Wrap around
+//         } else {
+//             frontIndex++;
+//         }
 
-        return data;
-    }
+//         return data;
+//     }
 
-    int front() {
-        if (frontIndex == -1) {
-            cout << "Queue is empty.\n";
-            return -1;
-        }
-        return arr[frontIndex];
-    }
+//     int front() {
+//         if (frontIndex == -1) {
+//             cout << "Queue is empty.\n";
+//             return -1;
+//         }
+//         return arr[frontIndex];
+//     }
 
-    bool isEmpty() {
-        return frontIndex == -1;
-    }
+//     bool isEmpty() {
+//         return frontIndex == -1;
+//     }
 
-    void display() {
-        if (isEmpty()) {
-            cout << "Queue is empty.\n";
-            return;
-        }
+//     void display() {
+//         if (isEmpty()) {
+//             cout << "Queue is empty.\n";
+//             return;
+//         }
 
-        cout << "Queue elements: ";
-        if (rearIndex >= frontIndex) {
-            for (int i = frontIndex; i <= rearIndex; i++) {
-                cout << arr[i] << " ";
-            }
-        } else {
-            for (int i = frontIndex; i < size; i++) {
-                cout << arr[i] << " ";
-            }
-            for (int i = 0; i <= rearIndex; i++) {
-                cout << arr[i] << " ";
-            }
-        }
-        cout << endl;
-    }
-};
+//         cout << "Queue elements: ";
+//         if (rearIndex >= frontIndex) {
+//             for (int i = frontIndex; i <= rearIndex; i++) {
+//                 cout << arr[i] << " ";
+//             }
+//         } else {
+//             for (int i = frontIndex; i < size; i++) {
+//                 cout << arr[i] << " ";
+//             }
+//             for (int i = 0; i <= rearIndex; i++) {
+//                 cout << arr[i] << " ";
+//             }
+//         }
+//         cout << endl;
+//     }
+// };
+// int main() {
+//     CircularQueue q(5);  // Smaller size for testing
+
+//     q.enqueue(10);
+//     q.enqueue(20);
+//     q.enqueue(30);
+//     q.enqueue(40);
+//     q.enqueue(50);  // Should say "Queue is full"
+
+//     q.display();
+
+//     cout << "Dequeued: " << q.dequeue() << endl;
+//     q.enqueue(60);  // Should succeed due to wrap-around
+
+//     q.display();
+
+//     cout << "Front element: " << q.front() << endl;
+
+//     return 0;
+// }
+
