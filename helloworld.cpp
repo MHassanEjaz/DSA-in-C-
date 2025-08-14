@@ -2461,19 +2461,69 @@
 
 
 
-// First non-repeating character in stream
+// First non-repeating character in a stream
+// #include <iostream>
+// #include <queue>
+// #include <unordered_map>
+// using namespace std;
+
+// class Solution {
+// public: 
+//     string firstNonRepeating(string a) {
+//         unordered_map<char, int> count;
+//         queue<char> q;
+//         string ans = "";
+
+//         for (int i = 0; i < a.length(); i++) {
+//             char ch = a[i];
+
+//             count[ch]++;
+//             q.push(ch);
+
+//             while (!q.empty()) {
+//                 if (count[q.front()] > 1) {
+//                     q.pop();
+//                 } else {
+//                     ans.push_back(q.front());
+//                     break;
+//                 }
+//             }
+
+//             if (q.empty()) {
+//                 ans.push_back('#');
+//             }
+//         }
+
+//         return ans;
+//     }
+// };
+
+// int main() {
+//     Solution sol;
+//     string stream = "aabc";
+//     string result = sol.firstNonRepeating(stream);
+//     cout << "First non-repeating characters in the stream: " << result << endl;
+
+//     return 0;
+// }
+
+
+
+
+
+
 #include <iostream>
 #include <queue>
-#include <stack>
+#include <unordered_map>
 using namespace std;
 
-
+class Solution {
+public: 
+   
+};
 
 int main() {
     
-    
-
     return 0;
 }
-
 
