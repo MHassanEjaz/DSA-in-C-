@@ -1900,4 +1900,13 @@ int main() {
     q.push(15);
     q.push(13);
     cout << "Size of queue is: " << q.size() << endl;
+    q.pop();
+    q.pop();
+    q.pop();
+    cout << "Size of queue is: " << q.size() << endl;
+    if(q.empty()){
+     cout << "Queue is empty.\n";   
+    } else {
+        cout << "Queue is not empty.\n";
+    }
 }
