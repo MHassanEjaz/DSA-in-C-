@@ -1928,21 +1928,52 @@ class queue {
     public:
     queue(){
         size = 100001;
+        arr = new int[size];
+        front = 0;
+        rear = 0;
     }
 
 
     bool isempty() {
-
+        if(front == rear){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     void enqueue(int data){
-
+        if(rear = size){
+            cout << "Size is full.\n";
+        } else{
+            arr[rear] = data;
+            rear++;
+        }
     }
 
     int dequeue() {
-        
+        if(front == rear){
+            return -1;
+        } else {
+            int ans = ans[front];
+            arr[front] = -1;
+            front++;
+            if(front == rear){
+                front = 0;
+                rear = 0;
+            }
+            return ans;
+        }
     }
-}
+
+    int front() {
+        if(front == rear){
+            return -1;
+        } else {
+            return arr[front];
+        }
+    }
+};
 
 int main() {
     queue<int> q;
