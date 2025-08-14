@@ -2022,10 +2022,6 @@ public:
         rearIndex = 0;
     }
 
-    bool isEmpty() {
-        return frontIndex == rearIndex;
-    }
-
     bool enqueue(int data) {
         if (frontIndex == 0 && rearIndex == size-1 || rearIndex = (frontIndex-1)%(size-1)) {
             cout << "Queue is full.\n";
@@ -2037,30 +2033,31 @@ public:
             }
           else if(rearIndex == size-1 && frontIndex != 0){
                 rearIndex = 0;
-                arr[rearIndex] = data;
             }
         else {
             rearIndex++;
-            arr[rearIndex] = data;
         }    
+        arr[rearIndex] = data;
+        return true;
 
         }
     }
 
 
     int dequeue() {
-        if (frontIndex == rearIndex) {
-            return -1;
-        } else {
-            int ans = arr[frontIndex];  // Corrected from ans[front]
-            arr[frontIndex] = -1;
-            frontIndex++;
-            if (frontIndex == rearIndex) {
-                frontIndex = 0;
-                rearIndex = 0;
-            }
-            return ans;
+        if (frontIndex == -1) {
+        cout << "Queue is empty.\n";
+        return -1;
         }
+        int ans = arr[frontIndex];
+        arr[frontIndex] = -1;
+        else if(frontIndex = size-1){
+            front =0;
+        }
+        else {
+            frontIndex++;
+        }
+        return ans;
     }
 
     int front() {
@@ -2071,31 +2068,11 @@ public:
         }
     }
 
-    int getSize() {
-        return rearIndex - frontIndex;
-    }
+    
 };
 
 int main() {
-    MyQueue q;  // Use custom class MyQueue instead of STL queue
-
-    q.enqueue(11);
-    q.enqueue(15);
-    q.enqueue(13);
-
-    cout << "Size of queue is: " << q.getSize() << endl;
-
-    q.dequeue();
-    q.dequeue();
-    q.dequeue();
-
-    cout << "Size of queue is: " << q.getSize() << endl;
-
-    if (q.isEmpty()) {
-        cout << "Queue is empty.\n";
-    } else {
-        cout << "Queue is not empty.\n";
-    }
+    
 
     return 0;
 }
