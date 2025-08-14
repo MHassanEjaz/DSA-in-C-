@@ -2015,64 +2015,86 @@ class CircularQueue {
     int size;
 
 public:
-    MyQueue() {
-        size = 100001;
+    CircularQueue(int s = 100001) {
+        size = s;
         arr = new int[size];
-        frontIndex = rearIndex-1;
-        rearIndex = 0;
+        frontIndex = -1;
+        rearIndex = -1;
     }
 
     bool enqueue(int data) {
-        if (frontIndex == 0 && rearIndex == size-1 || rearIndex = (frontIndex-1)%(size-1)) {
+        // Check if queue is full
+        if ((frontIndex == 0 && rearIndex == size - 1) || 
+            (rearIndex + 1) % size == frontIndex) {
             cout << "Queue is full.\n";
-            return;
-        } else if {
-            if(frontIndex == -1){
-            frontIndex = rearIndex =0;
-            arr[rear] = data;
-            }
-          else if(rearIndex == size-1 && frontIndex != 0){
-                rearIndex = 0;
-            }
-        else {
+            return false;
+        }
+
+        // First element
+        if (frontIndex == -1) {
+            frontIndex = rearIndex = 0;
+        } else if (rearIndex == size - 1 && frontIndex != 0) {
+            rearIndex = 0;  // Wrap around
+        } else {
             rearIndex++;
-        }    
+        }
+
         arr[rearIndex] = data;
         return true;
-
-        }
     }
-
 
     int dequeue() {
         if (frontIndex == -1) {
-        cout << "Queue is empty.\n";
-        return -1;
+            cout << "Queue is empty.\n";
+            return -1;
         }
-        int ans = arr[frontIndex];
+
+        int data = arr[frontIndex];
         arr[frontIndex] = -1;
-        else if(frontIndex = size-1){
-            front =0;
-        }
-        else {
+
+        // Only one element
+        if (frontIndex == rearIndex) {
+            frontIndex = rearIndex = -1;
+        } else if (frontIndex == size - 1) {
+            frontIndex = 0;  // Wrap around
+        } else {
             frontIndex++;
         }
-        return ans;
+
+        return data;
     }
 
     int front() {
-        if (frontIndex == rearIndex) {
+        if (frontIndex == -1) {
+            cout << "Queue is empty.\n";
             return -1;
-        } else {
-            return arr[frontIndex];
         }
+        return arr[frontIndex];
     }
 
-    
+    bool isEmpty() {
+        return frontIndex == -1;
+    }
+
+    void display() {
+        if (isEmpty()) {
+            cout << "Queue is empty.\n";
+            return;
+        }
+
+        cout << "Queue elements: ";
+        if (rearIndex >= frontIndex) {
+            for (int i = frontIndex; i <= rearIndex; i++) {
+                cout << arr[i] << " ";
+            }
+        } else {
+            for (int i = frontIndex; i < size; i++) {
+                cout << arr[i] << " ";
+            }
+            for (int i = 0; i <= rearIndex; i++) {
+                cout << arr[i] << " ";
+            }
+        }
+        cout << endl;
+    }
 };
-
-int main() {
-    
-
-    return 0;
-}
