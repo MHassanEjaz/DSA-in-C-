@@ -2326,13 +2326,39 @@
 
 
 
-// 
+// First negative integer in every window of size k
 #include <iostream>
 #include<queue>
 #include<stack>
 using namespace std;
-queue<int> rev(queue<int> q){
-    
+queue<long long> printfirstnegint(long long int a[], long long int n, long long int k){
+    deque<long long int> dq;
+    vector<long long> ans;
+    for(int i=0;i<k;i++){
+        if(a[i] < 0){
+            dq.push_back(i);
+        }
+    }
+    if(dq.size() > 0){
+        ans.push_back(a[dq.front()]);
+    } else {
+        ans.push_back(0);
+    }
+
+    for(int i=k;i<n;i++){
+        if(!dq.empty() && i - dq.front() >= k){
+            dq.push_back();
+        }
+        if(a[i] < 0){
+            dq.push_back(i);
+        }
+        if(dq.size() > 0){
+            ans.push_back(a[dq.front()]);
+        } else {
+            ans.push_back(0);
+        }
+    }
+    return ans;
 }
 int main() {
      
