@@ -1918,76 +1918,83 @@
 
 // Implement a Queue with class
 #include <iostream>
-#include<queue>
 using namespace std;
-class queue {
-    int *arr;
-    int front;
-    int rear;
+
+class MyQueue {
+    int* arr;
+    int frontIndex;
+    int rearIndex;
     int size;
-    public:
-    queue(){
+
+public:
+    MyQueue() {
         size = 100001;
         arr = new int[size];
-        front = 0;
-        rear = 0;
+        frontIndex = 0;
+        rearIndex = 0;
     }
 
+    bool isEmpty() {
+        return frontIndex == rearIndex;
+    }
 
-    bool isempty() {
-        if(front == rear){
-            return true;
+    void enqueue(int data) {
+        if (rearIndex == size) {
+            cout << "Queue is full.\n";
         } else {
-            return false;
-        }
-    }
-
-    void enqueue(int data){
-        if(rear = size){
-            cout << "Size is full.\n";
-        } else{
-            arr[rear] = data;
-            rear++;
+            arr[rearIndex] = data;
+            rearIndex++;
         }
     }
 
     int dequeue() {
-        if(front == rear){
+        if (frontIndex == rearIndex) {
             return -1;
         } else {
-            int ans = ans[front];
-            arr[front] = -1;
-            front++;
-            if(front == rear){
-                front = 0;
-                rear = 0;
+            int ans = arr[frontIndex];  // Corrected from ans[front]
+            arr[frontIndex] = -1;
+            frontIndex++;
+            if (frontIndex == rearIndex) {
+                frontIndex = 0;
+                rearIndex = 0;
             }
             return ans;
         }
     }
 
     int front() {
-        if(front == rear){
+        if (frontIndex == rearIndex) {
             return -1;
         } else {
-            return arr[front];
+            return arr[frontIndex];
         }
+    }
+
+    int getSize() {
+        return rearIndex - frontIndex;
     }
 };
 
 int main() {
-    queue<int> q;
-    q.push(11);
-    q.push(15);
-    q.push(13);
-    cout << "Size of queue is: " << q.size() << endl;
-    q.pop();
-    q.pop();
-    q.pop();
-    cout << "Size of queue is: " << q.size() << endl;
-    if(q.empty()){
-     cout << "Queue is empty.\n";   
+    MyQueue q;  // Use custom class MyQueue instead of STL queue
+
+    q.enqueue(11);
+    q.enqueue(15);
+    q.enqueue(13);
+
+    cout << "Size of queue is: " << q.getSize() << endl;
+
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+
+    cout << "Size of queue is: " << q.getSize() << endl;
+
+    if (q.isEmpty()) {
+        cout << "Queue is empty.\n";
     } else {
         cout << "Queue is not empty.\n";
     }
+
+    return 0;
 }
