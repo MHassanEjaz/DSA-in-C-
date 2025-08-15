@@ -2611,6 +2611,18 @@ void enqueue(int data, int qn){
      arr[index] = data;
 }
     
+
+int dequeue(int qn){
+    if(front[qn] == -1){
+        cout << "Queue Underflow.\n";
+        return;
+    }
+    int index = front[qn-1];
+    front[qn-1] = next[index];
+    next[index] = freespott;
+    freespott = index; 
+    return 
+}
        
 };
 
