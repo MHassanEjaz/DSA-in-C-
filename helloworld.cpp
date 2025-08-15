@@ -2555,11 +2555,11 @@ int main() {
     
     int n = sizeof(arr) / sizeof(arr[0]);
 
-//     Solution sol;
-//     int result = sol.tour(arr, n);
+    Solution sol;
+    int result = sol.tour(arr, n);
 
-//     cout << "Starting point: " << result << endl;
+    cout << "Starting point: " << result << endl;
 
-//     return 0;
-// }
+    return 0;
+}
 
