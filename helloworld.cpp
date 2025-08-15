@@ -2568,8 +2568,48 @@
 
 #include <iostream>
 using namespace std;
-class Solution {
+class kqueue {
+int n;
+int k;
+int *front;
+int *rear;
+int *arr;
+int *freespott;
+int *next;
 public:
+kqueue(int n, int k){
+    this->n=n;
+    this->k=k;
+    front = new int[k];
+    rear = new int[k];
+    for(int i=0;i<k;i++){
+        front[i] = -1;
+        rear[i] = -1;
+    }
+    next = new int[n];
+    for(int i=0;i<n;i++){
+        next[i] = i+1;
+    }
+    next[n-1] = -1;
+    arr = new int[n];
+    freespot = 0;
+}
+void enqueue(int data, int qn){
+    if(freespott == -1){
+        cout << "No empty space is present.\n";
+        return;
+    }
+     int index = freespott;
+     freespott = next[index];
+     if(front[qn-1] == -1){
+        front[qn-1] = index;
+     } else {
+        next[rear[qn-1]] = index;
+     }
+     next[index] = -1;
+     rear[qn-1] = index;
+     arr[index] = data;
+}
     
        
 };
