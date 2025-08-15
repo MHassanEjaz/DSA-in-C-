@@ -2565,68 +2565,128 @@
 
 
 
+// K Queue in a single array
+// #include <iostream>
+// using namespace std;
 
+// class kqueue {
+//     int n;
+//     int k;
+//     int *front;
+//     int *rear;
+//     int *arr;
+//     int *next;
+//     int freespot;
+
+// public:
+//     kqueue(int n, int k) {
+//         this->n = n;
+//         this->k = k;
+//         front = new int[k];
+//         rear = new int[k];
+//         for (int i = 0; i < k; i++) {
+//             front[i] = -1;
+//             rear[i] = -1;
+//         }
+
+//         next = new int[n];
+//         for (int i = 0; i < n; i++) {
+//             next[i] = i + 1;
+//         }
+//         next[n - 1] = -1;
+
+//         arr = new int[n];
+//         freespot = 0;
+//     }
+
+//     void enqueue(int data, int qn) {
+//         if (freespot == -1) {
+//             cout << "No empty space is present.\n";
+//             return;
+//         }
+
+//         // Step 1: Find index
+//         int index = freespot;
+
+//         // Step 2: Update freespot
+//         freespot = next[index];
+
+//         // Step 3: Insert into queue
+//         if (front[qn - 1] == -1) {
+//             front[qn - 1] = index;
+//         } else {
+//             next[rear[qn - 1]] = index;
+//         }
+
+//         next[index] = -1;
+//         rear[qn - 1] = index;
+//         arr[index] = data;
+//     }
+
+//     int dequeue(int qn) {
+//         if (front[qn - 1] == -1) {
+//             cout << "Queue Underflow.\n";
+//             return -1;
+//         }
+
+//         int index = front[qn - 1];
+//         front[qn - 1] = next[index];
+
+//         // Link the freed spot to the beginning of free spots
+//         next[index] = freespot;
+//         freespot = index;
+
+//         return arr[index];
+//     }
+
+//     ~kqueue() {
+//         delete[] front;
+//         delete[] rear;
+//         delete[] next;
+//         delete[] arr;
+//     }
+// };
+
+// int main() {
+//     kqueue q(10, 3); // 10 slots, 3 queues
+
+//     q.enqueue(10, 1);
+//     q.enqueue(15, 1);
+//     q.enqueue(20, 2);
+//     q.enqueue(25, 1);
+
+//     cout << "Dequeued from queue 1: " << q.dequeue(1) << endl;
+//     cout << "Dequeued from queue 2: " << q.dequeue(2) << endl;
+//     cout << "Dequeued from queue 1: " << q.dequeue(1) << endl;
+
+//     q.enqueue(30, 2);
+//     q.enqueue(35, 3);
+
+//     cout << "Dequeued from queue 3: " << q.dequeue(3) << endl;
+
+//     return 0;
+// }
+
+
+
+
+
+// Sum of minimum and maximum elements of all subarrays of size k
 #include <iostream>
 using namespace std;
+
 class kqueue {
-int n;
-int k;
-int *front;
-int *rear;
-int *arr;
-int *freespott;
-int *next;
-public:
-kqueue(int n, int k){
-    this->n=n;
-    this->k=k;
-    front = new int[k];
-    rear = new int[k];
-    for(int i=0;i<k;i++){
-        front[i] = -1;
-        rear[i] = -1;
-    }
-    next = new int[n];
-    for(int i=0;i<n;i++){
-        next[i] = i+1;
-    }
-    next[n-1] = -1;
-    arr = new int[n];
-    freespot = 0;
-}
-void enqueue(int data, int qn){
-    if(freespott == -1){
-        cout << "No empty space is present.\n";
-        return;
-    }
-     int index = freespott;
-     freespott = next[index];
-     if(front[qn-1] == -1){
-        front[qn-1] = index;
-     } else {
-        next[rear[qn-1]] = index;
-     }
-     next[index] = -1;
-     rear[qn-1] = index;
-     arr[index] = data;
-}
     
 
-int dequeue(int qn){
-    if(front[qn] == -1){
-        cout << "Queue Underflow.\n";
-        return;
-    }
-    int index = front[qn-1];
-    front[qn-1] = next[index];
-    next[index] = freespott;
-    freespott = index; 
-    return 
-}
-       
+public:
+    
+        
+        
 };
 
 int main() {
+    
+
     
 
     return 0;
