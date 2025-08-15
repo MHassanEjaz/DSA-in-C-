@@ -2718,9 +2718,10 @@ int solve(int *arr, int n, int k){
         mini.push_back(i);
     }
     ans += arr[maxi.front()] + arr[mini.front()];
+    return ans;
 }
 int main() {
-    int arr[7] = {2,-5,-1,7,-3,-1,-2};
+    int arr[7] = {2,5,-1,7,-3,-1,-2};
     int k=4;
     cout << solve(arr, 7, k);    
 
