@@ -2734,76 +2734,76 @@
 
 
 // Circular queue
-#include<iostream>
-using namespace std;
-class circularqueue {
-int *arr;
-int currsize, cap;
-int f = 0, r = -1;
-public:
-circularqueue(int size){
-    cap = size;
-    currsize = 0;
-    arr = new int[cap];
-    f=0;
-    r=-1;
-}
-void push(int data) {
-if(currsize == cap){
-    cout << "CQ is full.\n";
-    return;
-}
-r = (r+1)%cap;
-arr[r] = data;
-currsize++;
-}
+// #include<iostream>
+// using namespace std;
+// class circularqueue {
+// int *arr;
+// int currsize, cap;
+// int f = 0, r = -1;
+// public:
+// circularqueue(int size){
+//     cap = size;
+//     currsize = 0;
+//     arr = new int[cap];
+//     f=0;
+//     r=-1;
+// }
+// void push(int data) {
+// if(currsize == cap){
+//     cout << "CQ is full.\n";
+//     return;
+// }
+// r = (r+1)%cap;
+// arr[r] = data;
+// currsize++;
+// }
 
-void pop() {
-if(currsize == 0){
-    cout << "CQ is empty.\n";
-    return;
-}
-f = (f+1)%cap;
-currsize--;
-}
+// void pop() {
+// if(currsize == 0){
+//     cout << "CQ is empty.\n";
+//     return;
+// }
+// f = (f+1)%cap;
+// currsize--;
+// }
 
-int front() {
-    if(currsize == 0){
-    cout << "CQ is empty.\n";
-    return -1;
-}
-return arr[f];
+// int front() {
+//     if(currsize == 0){
+//     cout << "CQ is empty.\n";
+//     return -1;
+// }
+// return arr[f];
 
-}
+// }
 
-bool empty ()
-{
-    return currsize == 0;
+// bool empty ()
+// {
+//     return currsize == 0;
 
-}
+// }
 
-void printarray() {
-    for(int i=0;i<cap;i++){
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-}
-};
+// void printarray() {
+//     for(int i=0;i<cap;i++){
+//         cout << arr[i] << " ";
+//     }
+//     cout << endl;
+// }
+// };
 
-int main(){
-circularqueue cq(3);
-    cq.push(1);
-    cq.push(2);
-    cq.push(3);
-    cq.push(4); // will show "CQ is full"
+// int main(){
+// circularqueue cq(3);
+//     cq.push(1);
+//     cq.push(2);
+//     cq.push(3);
+//     cq.push(4); // will show "CQ is full"
     
-    cout << "Front element: " << cq.front() << endl;
-    cq.pop();
-    cout << "Front element after pop: " << cq.front() << endl;
-    cq.printarray();
+//     cout << "Front element: " << cq.front() << endl;
+//     cq.pop();
+//     cout << "Front element after pop: " << cq.front() << endl;
+//     cq.printarray();
 
-    return 0;
-}
+//     return 0;
+// }
 
 
 
