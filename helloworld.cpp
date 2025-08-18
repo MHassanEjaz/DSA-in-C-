@@ -2743,13 +2743,14 @@ int f = 0, r = -1;
 public:
 circularqueue(int size){
     cap = size;
+    currsize = 0;
     arr = new int[cap];
     f=0;
     r=-1;
 }
 void push(int data) {
 if(currsize == cap){
-    cout << "CQ is empty.\n";
+    cout << "CQ is full.\n";
     return;
 }
 r = (r+1)%cap;
@@ -2758,7 +2759,7 @@ currsize++;
 }
 
 void pop() {
-if(currsize == cap){
+if(currsize == 0){
     cout << "CQ is empty.\n";
     return;
 }
@@ -2767,7 +2768,7 @@ currsize--;
 }
 
 int front() {
-    if(currsize == cap){
+    if(currsize == 0){
     cout << "CQ is empty.\n";
     return -1;
 }
@@ -2780,10 +2781,25 @@ bool empty ()
     return currsize == 0;
 
 }
+
+void printarray() {
+    for(int i=0;i<cap;i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
 };
 
 int main(){
-
+circularqueue cq(3);
+    cq.push(1);
+    cq.push(2);
+    cq.push(3);
+    cq.push(4); // will show "CQ is full"
+    
+    cout << "Front element: " << cq.front() << endl;
+    cq.pop();
+    cout << "Front element after pop: " << cq.front() << endl;
 
     return 0;
 }
