@@ -2800,6 +2800,7 @@ circularqueue cq(3);
     cout << "Front element: " << cq.front() << endl;
     cq.pop();
     cout << "Front element after pop: " << cq.front() << endl;
+    cq.printarray();
 
     return 0;
 }
