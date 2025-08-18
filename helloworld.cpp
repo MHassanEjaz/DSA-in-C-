@@ -2721,14 +2721,14 @@
 //     return ans;
 // }
 // int main() {
-    int arr[7] = {2,5,-1,7,-3,-1,-2};
-    int k=4;
-    cout << solve(arr, 7, k);    
+//     int arr[7] = {2,5,-1,7,-3,-1,-2};
+//     int k=4;
+//     cout << solve(arr, 7, k);    
 
     
 
-    return 0;
-}
+//     return 0;
+// }
 
 
 
