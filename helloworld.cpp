@@ -2814,8 +2814,8 @@
 using namespace std;
 int main(){
     // int arr[5] = {1,2,3,4,5}; // Single array
-    int matrix[4][3] = {{1,2,3,}, {4,5,6}, {7,8,9} , {10,11,12}}; // 2D array
-     int matrix[4][3]; // for input
+    // int matrix[4][3] = {{1,2,3,}, {4,5,6}, {7,8,9} , {10,11,12}}; // 2D array
+    int matrix[4][3]; // for input
     int rows = 4;
     int cols = 3;
 
