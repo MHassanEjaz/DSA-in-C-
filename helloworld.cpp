@@ -2810,32 +2810,93 @@
 
 
 // 2D Arrays
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     // int arr[5] = {1,2,3,4,5}; // Single array
+//     // int matrix[4][3] = {{1,2,3,}, {4,5,6}, {7,8,9} , {10,11,12}}; // 2D array
+//     int matrix[4][3]; // for input
+//     int rows = 4;
+//     int cols = 3;
+
+//     // cout << matrix[2][1];
+//     //  for input
+//     for(int i=0;i<rows;i++){
+//         for(int j=0;j<cols;j++){
+//             cin >> matrix[i][j];
+//         }
+//         cout << endl;
+//     }
+
+//     // output
+//     for(int i=0;i<rows;i++){
+//         for(int j=0;j<cols;j++){
+//             cout << matrix[i][j];
+//         }
+//         cout << endl;
+//     }
+
+//     return 0;
+// }
+
+
+
+
+
+
+// Linear Search in 2d array
+// #include<iostream>
+// using namespace std;
+// bool linearsearch(int matrix[4][3], int rows, int cols, int key){
+//     for(int i=0;i<rows;i++){
+//         for(int j=0;j<cols;j++){
+//             if(matrix[i][j] == key){
+//                 return true;
+//             }
+//         }
+//     }
+//     return false;
+// }
+// int main(){
+    
+//     int matrix[4][3] = {{1,2,3,}, {4,5,6}, {7,8,9} , {10,11,12}}; // 2D array
+//     int rows = 4;
+//     int cols = 3;
+//     int key = 100;
+//     cout << linearsearch(matrix, rows, cols, key);
+    
+    
+
+//     return 0;
+// }
+
+
+
+
+
+
+// Maximum row sum
 #include<iostream>
 using namespace std;
+int getrowmaxsum(int matrix[4][3], int rows, int cols){
+    int maxsum = INT16_MIN;
+    for(int i=0;i<rows;i++){
+        int rowsum = 0;
+        for(int j=0;j<cols;j++){
+            rowsum += matrix[i][j];
+        }
+        maxsum = max(maxsum, rowsum); 
+    }
+    return maxsum;
+}
 int main(){
-    // int arr[5] = {1,2,3,4,5}; // Single array
-    // int matrix[4][3] = {{1,2,3,}, {4,5,6}, {7,8,9} , {10,11,12}}; // 2D array
-    int matrix[4][3]; // for input
-    int rows = 4;
+    
+    int matrix[3][3] = {{1,2,3,}, {4,5,6}, {7,8,9}}; // 2D array
+    int rows = 3;
     int cols = 3;
-
-    // cout << matrix[2][1];
-    //  for input
-    for(int i=0;i<rows;i++){
-        for(int j=0;j<cols;j++){
-            cin >> matrix[i][j];
-        }
-        cout << endl;
-    }
-
-    // output
-    for(int i=0;i<rows;i++){
-        for(int j=0;j<cols;j++){
-            cout << matrix[i][j];
-        }
-        cout << endl;
-    }
+    cout << getrowmaxsum(matrix, rows, cols);
+    
+    
 
     return 0;
 }
-
