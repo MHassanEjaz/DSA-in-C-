@@ -2967,6 +2967,13 @@ void push_front(int val) {
         newnode->next = head;
         head = newnode;
     }
+    void printll(){
+        Node* temp = head;
+        while(temp != NULL){
+            cout << temp->data << " ";
+            cout << temp->next;
+        }
+    }
 
 }
 };
