@@ -2959,7 +2959,7 @@ List(){
 
 void push_front(int val) {
     Node* newnode = new Node(val);
-    Node newnode(val);
+    
 
 }
 };
