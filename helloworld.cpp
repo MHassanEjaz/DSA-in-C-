@@ -2949,6 +2949,7 @@ Node(int val){
     next = NULL;
 }
 };
+
 class List {
 Node* head;
 Node* tail;
@@ -2956,7 +2957,7 @@ public:
 List(){
     head = tail = NULL;
 }
-
+// Push Front
 void push_front(int val) {
     Node* newnode = new Node(val);
     if(head == NULL){
@@ -2967,21 +2968,67 @@ void push_front(int val) {
         newnode->next = head;
         head = newnode;
     }
-    void printll(){
+}
+
+// Push Back
+void push_back(int val){
+        Node* newnode = new Node(val);
+        if(head == NULL){
+            head = tail = newnode;
+        } else {
+            tail->next = newnode;
+            tail = newnode;
+        }
+}
+
+    // Pop Front
+void pop_front(){
+        if(head == NULL){
+            cout << "LL is empty\n";
+            return;
+        }
+        Node* temp = head;
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+}
+
+
+    // Pop Back
+void pop_back(){
+        if(head == NULL){
+            cout << "LL is empty\n";
+            return;
+        }
+        Node* temp = tail;
+        tail = tail->next;
+        temp->next = NULL;
+        delete temp;
+}
+
+
+
+// Print Linked List
+void printll(){
         Node* temp = head;
         while(temp != NULL){
             cout << temp->data << " ";
-            cout << temp->next;
+            temp = temp->next;
         }
-    }
-
 }
+
+    
+
 };
 int main() {
     List ll;
     ll.push_front(1);
     ll.push_front(2);
     ll.push_front(3);
+    ll.push_back(4);
+    ll.pop_front();
+    ll.pop_back();
+    ll.printll();
 
 
     return 0;
