@@ -3060,17 +3060,17 @@ void printll(){
     
 
 };
-int main() {
-    List ll;
-    ll.push_front(3);
-    ll.push_front(2);
-    ll.push_front(1);
-    ll.insert(4, 1);
+// int main() {
+//     List ll;
+//     ll.push_front(3);
+//     ll.push_front(2);
+//     ll.push_front(1);
+//     ll.insert(4, 1);
    
-    ll.printll();
+//     ll.printll();
 
-    cout << ll.search(10) << endl;
+//     cout << ll.search(10) << endl;
 
 
-    return 0;
-}
+//     return 0;
+// }
