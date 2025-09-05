@@ -2975,7 +2975,8 @@ void push_back(int val){
         Node* newnode = new Node(val);
         if(head == NULL){
             head = tail = newnode;
-        } else {
+        } 
+        else {
             tail->next = newnode;
             tail = newnode;
         }
