@@ -2937,141 +2937,317 @@
 
 
 // Linked List
-#include<iostream>
-using namespace std;
-class Node {
-public:
-int data;
-Node* next;
+// #include<iostream>
+// using namespace std;
+// class Node {
+// public:
+// int data;
+// Node* next;
 
-Node(int val){
-    data = val;
-    next = NULL;
-}
-};
+// Node(int val){
+//     data = val;
+//     next = NULL;
+// }
+// };
 
-class List {
-Node* head;
-Node* tail;
-public:
-List(){
-    head = tail = NULL;
-}
-// Push Front
-void push_front(int val) {
-    Node* newnode = new Node(val);
-    if(head == NULL){
-        head = tail = newnode;
-        return;
-    }
-    else {
-        newnode->next = head;
-        head = newnode;
-    }
-}
+// class List {
+// Node* head;
+// Node* tail;
+// public:
+// List(){
+//     head = tail = NULL;
+// }
+// // Push Front
+// void push_front(int val) {
+//     Node* newnode = new Node(val);
+//     if(head == NULL){
+//         head = tail = newnode;
+//         return;
+//     }
+//     else {
+//         newnode->next = head;
+//         head = newnode;
+//     }
+// }
 
-// Push Back
-void push_back(int val){
-        Node* newnode = new Node(val);
-        if(head == NULL){
-            head = tail = newnode;
-        } 
-        else {
-            tail->next = newnode;
-            tail = newnode;
-        }
-}
+// // Push Back
+// void push_back(int val){
+//         Node* newnode = new Node(val);
+//         if(head == NULL){
+//             head = tail = newnode;
+//         } 
+//         else {
+//             tail->next = newnode;
+//             tail = newnode;
+//         }
+// }
 
-    // Pop Front
-void pop_front(){
-        if(head == NULL){
-            cout << "LL is empty\n";
-            return;
-        }
-        Node* temp = head;
-        head = head->next;
-        temp->next = NULL;
-        delete temp;
-}
-
-
-    // Pop Back
-void pop_back(){
-        if(head == NULL){
-            cout << "LL is empty\n";
-            return;
-        }
-        Node* temp = head;
-        while(temp->next != tail){
-            temp = temp->next;
-        }
-        temp->next = NULL;
-        delete tail;
-        tail = temp;
-}
-
-// Insert in Middle of LL
-void insert(int val, int pos){
-    if(pos <0 ){
-        cout << "Invalid Position.\n";
-        return;
-    }
-    if(pos == 0){
-        push_front(val);
-        return;
-    }
-    Node* temp = head;
-    for(int i=0;i<pos-1;i++){
-        if(temp == NULL){
-            cout << "Invalid\n";
-        }
-        temp = temp->next;
-    }
-    Node* newnode = new Node(val);
-    newnode->next = temp->next;
-    temp->next = newnode; 
-
-}
+//     // Pop Front
+// void pop_front(){
+//         if(head == NULL){
+//             cout << "LL is empty\n";
+//             return;
+//         }
+//         Node* temp = head;
+//         head = head->next;
+//         temp->next = NULL;
+//         delete temp;
+// }
 
 
-// Search in Linked List
-int search(int key){
-    Node* temp = head;
-    int idx = 0;
-    while(temp != NULL){
-        if(temp->data = key){
-            return idx;
-        }
-        temp = temp->next;
-        idx++;
-    }
-    return -1;
-}
+//     // Pop Back
+// void pop_back(){
+//         if(head == NULL){
+//             cout << "LL is empty\n";
+//             return;
+//         }
+//         Node* temp = head;
+//         while(temp->next != tail){
+//             temp = temp->next;
+//         }
+//         temp->next = NULL;
+//         delete tail;
+//         tail = temp;
+// }
+
+// // Insert in Middle of LL
+// void insert(int val, int pos){
+//     if(pos <0 ){
+//         cout << "Invalid Position.\n";
+//         return;
+//     }
+//     if(pos == 0){
+//         push_front(val);
+//         return;
+//     }
+//     Node* temp = head;
+//     for(int i=0;i<pos-1;i++){
+//         if(temp == NULL){
+//             cout << "Invalid\n";
+//         }
+//         temp = temp->next;
+//     }
+//     Node* newnode = new Node(val);
+//     newnode->next = temp->next;
+//     temp->next = newnode; 
+
+// }
 
 
-// Print Linked List
-void printll(){
-        Node* temp = head;
-        while(temp != NULL){
-            cout << temp->data << " ";
-            temp = temp->next;
-        }
-}
+// // Search in Linked List
+// int search(int key){
+//     Node* temp = head;
+//     int idx = 0;
+//     while(temp != NULL){
+//         if(temp->data = key){
+//             return idx;
+//         }
+//         temp = temp->next;
+//         idx++;
+//     }
+//     return -1;
+// }
+
+
+// // Print Linked List
+// void printll(){
+//         Node* temp = head;
+//         while(temp != NULL){
+//             cout << temp->data << " ";
+//             temp = temp->next;
+//         }
+// }
 
     
 
-};
-int main() {
-    List ll;
-    ll.push_front(3);
-    ll.push_front(2);
-    ll.push_front(1);
-    ll.insert(4, 1);
+// };
+// int main() {
+//     List ll;
+//     ll.push_front(3);
+//     ll.push_front(2);
+//     ll.push_front(1);
+//     ll.insert(4, 1);
    
-    ll.printll();
+//     ll.printll();
 
-    cout << ll.search(10) << endl;
+//     cout << ll.search(10) << endl;
 
+
+//     return 0;
+// }
+
+
+
+
+
+
+// Reverse a linked list
+// #include <iostream>
+// using namespace std;
+
+// class Node {
+// public:
+//     int data;
+//     Node* next;
+
+//     Node(int val) {
+//         data = val;
+//         next = NULL;
+//     }
+// };
+
+// class LinkedList {
+// private:
+//     Node* head;
+
+// public:
+//     LinkedList() {
+//         head = NULL;
+//     }
+
+    
+//     void insert(int val) {
+//         Node* newNode = new Node(val);
+//         if (head == NULL) {
+//             head = newNode;
+//             return;
+//         }
+//         Node* temp = head;
+//         while (temp->next != NULL) {
+//             temp = temp->next;
+//         }
+//         temp->next = newNode;
+//     }
+
+    
+//     void printList() {
+//         Node* temp = head;
+//         while (temp != NULL) {
+//             cout << temp->data << " ";
+//             temp = temp->next;
+//         }
+//         cout << endl;
+//     }
+
+    
+//     void reverse() {
+//         Node* prev = NULL;
+//         Node* curr = head;
+//         Node* next = NULL;
+
+//         while (curr != NULL) {
+//             next = curr->next;           
+//             curr->next = prev;               
+//             prev = curr;         
+//             curr = next;         
+//         }
+//         head = prev;
+
+//     }
+
+
+
+    
+// };
+
+// int main() {
+//     LinkedList ll;
+//     ll.insert(1);
+//     ll.insert(2);
+//     ll.insert(3);
+//     ll.insert(4);
+
+//     cout << "Original List: ";
+//     ll.printList();
+
+//     ll.reverse();
+
+//     cout << "Reversed List: ";
+//     ll.printList();
+
+//     return 0;
+// }
+
+
+
+
+// Middle of a linked list
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* next;
+
+    Node(int val) {
+        data = val;
+        next = NULL;
+    }
+};
+
+class LinkedList {
+private:
+    Node* head;
+
+public:
+    LinkedList() {
+        head = NULL;
+    }
+
+    // Insert at end
+    void insert(int val) {
+        Node* newNode = new Node(val);
+        if (head == NULL) {
+            head = newNode;
+            return;
+        }
+        Node* temp = head;
+        while (temp->next != NULL) {
+            temp = temp->next;
+        }
+        temp->next = newNode;
+    }
+
+    // Print the linked list
+    void printList() {
+        Node* temp = head;
+        while (temp != NULL) {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+
+    // Find the middle of the linked list
+    Node* findMiddle() {
+        if (head == NULL) return NULL;
+
+        Node* slow = head;
+        Node* fast = head;
+
+        while (fast != NULL && fast->next != NULL) {
+            slow = slow->next;        
+            fast = fast->next->next; 
+        }
+        return slow; 
+    }
+};
+
+int main() {
+    LinkedList ll;
+    ll.insert(1);
+    ll.insert(2);
+    ll.insert(3);
+    ll.insert(4);
+    ll.insert(5);
+
+    cout << "Linked List: ";
+    ll.printList();
+
+    Node* middle = ll.findMiddle();
+    if (middle != NULL)
+        cout << "Middle Element: " << middle->data << endl;
 
     return 0;
 }
