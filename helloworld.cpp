@@ -3172,82 +3172,174 @@
 
 
 // Middle of a linked list
+// #include <iostream>
+// using namespace std;
+
+// class Node {
+// public:
+//     int data;
+//     Node* next;
+
+//     Node(int val) {
+//         data = val;
+//         next = NULL;
+//     }
+// };
+
+// class LinkedList {
+// private:
+//     Node* head;
+
+// public:
+//     LinkedList() {
+//         head = NULL;
+//     }
+
+//     // Insert at end
+//     void insert(int val) {
+//         Node* newNode = new Node(val);
+//         if (head == NULL) {
+//             head = newNode;
+//             return;
+//         }
+//         Node* temp = head;
+//         while (temp->next != NULL) {
+//             temp = temp->next;
+//         }
+//         temp->next = newNode;
+//     }
+
+//     // Print the linked list
+//     void printList() {
+//         Node* temp = head;
+//         while (temp != NULL) {
+//             cout << temp->data << " ";
+//             temp = temp->next;
+//         }
+//         cout << endl;
+//     }
+
+//     // Find the middle of the linked list
+//     Node* findMiddle() {
+//         if (head == NULL) return NULL;
+
+//         Node* slow = head;
+//         Node* fast = head;
+
+//         while (fast != NULL && fast->next != NULL) {
+//             slow = slow->next;        
+//             fast = fast->next->next; 
+//         }
+//         return slow; 
+//     }
+// };
+
+// int main() {
+//     LinkedList ll;
+//     ll.insert(1);
+//     ll.insert(2);
+//     ll.insert(3);
+//     ll.insert(4);
+//     ll.insert(5);
+
+//     cout << "Linked List: ";
+//     ll.printList();
+
+//     Node* middle = ll.findMiddle();
+//     if (middle != NULL)
+//         cout << "Middle Element: " << middle->data << endl;
+
+//     return 0;
+// }
+
+
+
+
+
+
+
+
 #include <iostream>
 using namespace std;
 
 class Node {
 public:
     int data;
+    Node* prev;
     Node* next;
-
     Node(int val) {
         data = val;
+        prev = NULL;
         next = NULL;
     }
 };
 
-class LinkedList {
-private:
-    Node* head;
-
+class DoublyLinkedList {
 public:
-    LinkedList() {
+    Node* head;
+    DoublyLinkedList() {
         head = NULL;
     }
 
-    // Insert at end
     void insert(int val) {
         Node* newNode = new Node(val);
-        if (head == NULL) {
+        if (!head) {
             head = newNode;
             return;
         }
         Node* temp = head;
-        while (temp->next != NULL) {
-            temp = temp->next;
-        }
+        while (temp->next) temp = temp->next;
         temp->next = newNode;
+        newNode->prev = temp;
     }
 
-    // Print the linked list
-    void printList() {
+    void deleteKey(int val) {
         Node* temp = head;
-        while (temp != NULL) {
+        while (temp) {
+            if (temp->data == val) {
+                if (temp == head) {
+                    head = head->next;
+                    if (head) head->prev = NULL;
+                } else {
+                    if (temp->next) temp->next->prev = temp->prev;
+                    if (temp->prev) temp->prev->next = temp->next;
+                }
+                delete temp;
+                return;
+            }
+            temp = temp->next;
+        }
+    }
+
+    void display() {
+        Node* temp = head;
+        while (temp) {
             cout << temp->data << " ";
             temp = temp->next;
         }
         cout << endl;
     }
-
-    // Find the middle of the linked list
-    Node* findMiddle() {
-        if (head == NULL) return NULL;
-
-        Node* slow = head;
-        Node* fast = head;
-
-        while (fast != NULL && fast->next != NULL) {
-            slow = slow->next;        
-            fast = fast->next->next; 
-        }
-        return slow; 
-    }
 };
 
 int main() {
-    LinkedList ll;
-    ll.insert(1);
-    ll.insert(2);
-    ll.insert(3);
-    ll.insert(4);
-    ll.insert(5);
+    DoublyLinkedList dll;
+    int elements[] = {150,20,92,176,69,27,43,82,151,17,16,15,9,15};
+    int n = sizeof(elements)/sizeof(elements[0]);
 
-    cout << "Linked List: ";
-    ll.printList();
+    for (int i = 0; i < n; i++) dll.insert(elements[i]);
 
-    Node* middle = ll.findMiddle();
-    if (middle != NULL)
-        cout << "Middle Element: " << middle->data << endl;
+    cout << "DLL after insertion: ";
+    dll.display();
+
+    int delKeys[] = {27,151,16,85};
+    int m = sizeof(delKeys)/sizeof(delKeys[0]);
+
+    for (int i = 0; i < m; i++) {
+        dll.deleteKey(delKeys[i]);
+    }
+
+    cout << "DLL after deletion: ";
+    dll.display();
 
     return 0;
 }
