@@ -3259,87 +3259,112 @@
 
 
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-class Node {
-public:
-    int data;
-    Node* prev;
-    Node* next;
-    Node(int val) {
-        data = val;
-        prev = NULL;
-        next = NULL;
-    }
-};
+// class Node {
+// public:
+//     int data;
+//     Node* prev;
+//     Node* next;
+//     Node(int val) {
+//         data = val;
+//         prev = NULL;
+//         next = NULL;
+//     }
+// };
 
-class DoublyLinkedList {
-public:
-    Node* head;
-    DoublyLinkedList() {
-        head = NULL;
-    }
-
-    void insert(int val) {
-        Node* newNode = new Node(val);
-        if (!head) {
-            head = newNode;
-            return;
-        }
-        Node* temp = head;
-        while (temp->next) temp = temp->next;
-        temp->next = newNode;
-        newNode->prev = temp;
-    }
-
-    void deleteKey(int val) {
-        Node* temp = head;
-        while (temp) {
-            if (temp->data == val) {
-                if (temp == head) {
-                    head = head->next;
-                    if (head) head->prev = NULL;
-                } else {
-                    if (temp->next) temp->next->prev = temp->prev;
-                    if (temp->prev) temp->prev->next = temp->next;
-                }
-                delete temp;
-                return;
-            }
-            temp = temp->next;
-        }
-    }
-
-    void display() {
-        Node* temp = head;
-        while (temp) {
-            cout << temp->data << " ";
-            temp = temp->next;
-        }
-        cout << endl;
-    }
-};
-
-// int main() {
-//     DoublyLinkedList dll;
-//     int elements[] = {150,20,92,176,69,27,43,82,151,17,16,15,9,15};
-//     int n = sizeof(elements)/sizeof(elements[0]);
-
-//     for (int i = 0; i < n; i++) dll.insert(elements[i]);
-
-//     cout << "DLL after insertion: ";
-//     dll.display();
-
-//     int delKeys[] = {27,151,16,85};
-//     int m = sizeof(delKeys)/sizeof(delKeys[0]);
-
-//     for (int i = 0; i < m; i++) {
-//         dll.deleteKey(delKeys[i]);
+// class DoublyLinkedList {
+// public:
+//     Node* head;
+//     DoublyLinkedList() {
+//         head = NULL;
 //     }
 
-//     cout << "DLL after deletion: ";
-//     dll.display();
+//     void insert(int val) {
+//         Node* newNode = new Node(val);
+//         if (!head) {
+//             head = newNode;
+//             return;
+//         }
+//         Node* temp = head;
+//         while (temp->next) temp = temp->next;
+//         temp->next = newNode;
+//         newNode->prev = temp;
+//     }
 
-//     return 0;
-// }
+//     void deleteKey(int val) {
+//         Node* temp = head;
+//         while (temp) {
+//             if (temp->data == val) {
+//                 if (temp == head) {
+//                     head = head->next;
+//                     if (head) head->prev = NULL;
+//                 } else {
+//                     if (temp->next) temp->next->prev = temp->prev;
+//                     if (temp->prev) temp->prev->next = temp->next;
+//                 }
+//                 delete temp;
+//                 return;
+//             }
+//             temp = temp->next;
+//         }
+//     }
+
+//     void display() {
+//         Node* temp = head;
+//         while (temp) {
+//             cout << temp->data << " ";
+//             temp = temp->next;
+//         }
+//         cout << endl;
+//     }
+// };
+
+int main() {
+    DoublyLinkedList dll;
+    int elements[] = {150,20,92,176,69,27,43,82,151,17,16,15,9,15};
+    int n = sizeof(elements)/sizeof(elements[0]);
+
+    for (int i = 0; i < n; i++) dll.insert(elements[i]);
+
+    cout << "DLL after insertion: ";
+    dll.display();
+
+    int delKeys[] = {27,151,16,85};
+    int m = sizeof(delKeys)/sizeof(delKeys[0]);
+
+    for (int i = 0; i < m; i++) {
+        dll.deleteKey(delKeys[i]);
+    }
+
+    cout << "DLL after deletion: ";
+    dll.display();
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
