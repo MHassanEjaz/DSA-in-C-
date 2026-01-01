@@ -3321,28 +3321,28 @@
 //     }
 // };
 
-int main() {
-    DoublyLinkedList dll;
-    int elements[] = {150,20,92,176,69,27,43,82,151,17,16,15,9,15};
-    int n = sizeof(elements)/sizeof(elements[0]);
+// int main() {
+//     DoublyLinkedList dll;
+//     int elements[] = {150,20,92,176,69,27,43,82,151,17,16,15,9,15};
+//     int n = sizeof(elements)/sizeof(elements[0]);
 
-    for (int i = 0; i < n; i++) dll.insert(elements[i]);
+//     for (int i = 0; i < n; i++) dll.insert(elements[i]);
 
-    cout << "DLL after insertion: ";
-    dll.display();
+//     cout << "DLL after insertion: ";
+//     dll.display();
 
-    int delKeys[] = {27,151,16,85};
-    int m = sizeof(delKeys)/sizeof(delKeys[0]);
+//     int delKeys[] = {27,151,16,85};
+//     int m = sizeof(delKeys)/sizeof(delKeys[0]);
 
-    for (int i = 0; i < m; i++) {
-        dll.deleteKey(delKeys[i]);
-    }
+//     for (int i = 0; i < m; i++) {
+//         dll.deleteKey(delKeys[i]);
+//     }
 
-    cout << "DLL after deletion: ";
-    dll.display();
+//     cout << "DLL after deletion: ";
+//     dll.display();
 
-    return 0;
-}
+//     return 0;
+// }
 
 
 
